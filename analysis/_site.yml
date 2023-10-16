@@ -1,7 +1,7 @@
-name: "neuron_stimulation_100line_eQTL"
+name: neuron_stimulation_100line_eQTL
 output_dir: ../docs
 navbar:
-  title: "neuron_stimulation_100line_eQTL"
+  title: neuron_stimulation_100line_eQTL
   left:
   - text: Home
     href: index.html
@@ -9,6 +9,10 @@ navbar:
     href: about.html
   - text: License
     href: license.html
+  right:
+  - icon: fab fa-github
+    text: Source code
+    href: https://github.com/LifanLiang/neuron_stimulation_100line_eQTL
 output:
   workflowr::wflow_html:
     toc: yes
