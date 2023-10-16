@@ -16,6 +16,6 @@ eGenes for each condition (the combination of cell type and time point) was sele
 ### cTWAS results of GABA
 
 ```{r, out.width="0.3\\linewidth", include=TRUE, fig.align="center", fig.cap=c("Multiple timepoints in GABA"), echo=FALSE}
-knitr::include_graphics("docs/assets/GABA.pdf")
+knitr::include_graphics("docs/assets/GABA.png")
 ```
 
