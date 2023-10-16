@@ -1,0 +1,23 @@
+---
+title: "cTWAS"
+author: "Lifan Liang"
+date: "2023-10-16"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+## Introduction
+
+We have run the multigroup branch of <a href="https://github.com/xinhe-lab/ctwas" >target="_blank"> cTWAS</a> on each cell type seperately. Three time points serve as the "group" for the cell type run.
+
+eGenes for each condition (the combination of cell type and time point) was selected with two criteria: (1) At least one SNP-gene pair has FDR<0.05 in any time point within the same cell type; (2) P value < 0.1 for the current condition.
+
+### cTWAS results of GABA
+
+![](assets/GABA.pdf)
+
+```{r}
+
+```
+
