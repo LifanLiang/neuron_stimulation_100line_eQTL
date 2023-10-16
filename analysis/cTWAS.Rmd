@@ -13,9 +13,7 @@ We have run the multigroup branch of [cTWAS](https://github.com/xinhe-lab/ctwas)
 
 eGenes for each condition (the combination of cell type and time point) was selected with two criteria: (1) At least one SNP-gene pair has FDR<0.05 in any time point within the same cell type; (2) P value < 0.1 for the current condition.
 
-### cTWAS results of GABA
+### cTWAS parameter estimates for GABA
 
-```{r, out.width="0.8\\linewidth", include=TRUE, fig.align="center", fig.cap=c("GABA multigroup")}
-knitr::include_graphics("docs/assets/GABA.png")
-```
+![GABA multigroup](assets/GABA.png)
 
