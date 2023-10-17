@@ -521,15 +521,15 @@ project makes it easier to run your code on other machines.</p>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomLifanLiangneuronstimulation100lineeQTLtreeb92db66650a2e0b21c1ad041e21aca76a2edff85targetblankb92db66a">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomLifanLiangneuronstimulation100lineeQTLtreebb2003b432f8c95b3b7f8e4f7be9311ce623bf19targetblankbb2003ba">
 <span class="glyphicon glyphicon-ok text-success"
 aria-hidden="true"></span> <strong>Repository version:</strong>
-<a href="https://github.com/LifanLiang/neuron_stimulation_100line_eQTL/tree/b92db66650a2e0b21c1ad041e21aca76a2edff85" target="_blank">b92db66</a>
+<a href="https://github.com/LifanLiang/neuron_stimulation_100line_eQTL/tree/bb2003b432f8c95b3b7f8e4f7be9311ce623bf19" target="_blank">bb2003b</a>
 </a>
 </p>
 </div>
 <div
-id="strongRepositoryversionstrongahrefhttpsgithubcomLifanLiangneuronstimulation100lineeQTLtreeb92db66650a2e0b21c1ad041e21aca76a2edff85targetblankb92db66a"
+id="strongRepositoryversionstrongahrefhttpsgithubcomLifanLiangneuronstimulation100lineeQTLtreebb2003b432f8c95b3b7f8e4f7be9311ce623bf19targetblankbb2003ba"
 class="panel-collapse collapse">
 <div class="panel-body">
 <p>
@@ -539,7 +539,7 @@ reproducibility.
 </p>
 <p>
 The results in this page were generated with repository version
-<a href="https://github.com/LifanLiang/neuron_stimulation_100line_eQTL/tree/b92db66650a2e0b21c1ad041e21aca76a2edff85" target="_blank">b92db66</a>.
+<a href="https://github.com/LifanLiang/neuron_stimulation_100line_eQTL/tree/bb2003b432f8c95b3b7f8e4f7be9311ce623bf19" target="_blank">bb2003b</a>.
 See the <em>Past versions</em> tab to see a history of the changes made
 to the R Markdown and HTML files.
 </p>
@@ -555,6 +555,12 @@ were generated:
 <pre><code>
 Ignored files:
     Ignored:    .DS_Store
+    Ignored:    data/.DS_Store
+
+Untracked files:
+    Untracked:  data/GABA_gene_PIP.txt
+    Untracked:  data/nmglut_gene_PIP.txt
+    Untracked:  data/npglut_gene_PIP.txt
 
 </code></pre>
 <p>
@@ -599,6 +605,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/LifanLiang/neuron_stimulation_100line_eQTL/blob/bb2003b432f8c95b3b7f8e4f7be9311ce623bf19/analysis/cTWAS.Rmd" target="_blank">bb2003b</a>
+</td>
+<td>
+Lifan Liang
+</td>
+<td>
+2023-10-17
+</td>
+<td>
+wflow_publish(c("analysis/cTWAS.Rmd", "docs/assets/"))
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/LifanLiang/neuron_stimulation_100line_eQTL/bb2003b432f8c95b3b7f8e4f7be9311ce623bf19/docs/cTWAS.html" target="_blank">bb2003b</a>
+</td>
+<td>
+Lifan Liang
+</td>
+<td>
+2023-10-17
+</td>
+<td>
+wflow_publish(c("analysis/cTWAS.Rmd", "docs/assets/"))
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -834,16 +874,12 @@ href="https://github.com/xinhe-lab/ctwas">cTWAS</a> on each cell type
 seperately. Three time points serve as the “group” for the cell type
 run.</p>
 <p>eGenes for each condition (the combination of cell type and time
-point) was selected with two criteria: (1) At least one SNP-gene pair
-has FDR&lt;0.05 in any time point within the same cell type; (2) P value
+point) was selected with three criteria: 1. At least one SNP-gene pair
+has FDR&lt;0.05 in any time point within the same cell type; 2. P value
 &lt; 0.1 for the current condition. The number of genes for different
-settings were shown below:</p>
-<pre class="r"><code>ngenes.multi &lt;- c(4157, 4183, 4128, 2554, 2516, 2562, 5150, 5113, 5170)
-ngenes.single &lt;- c(1798,2182,2296,926,1323,1186,2415,2917,2976)
-dat &lt;- data.frame(MultiGroup=ngenes.multi, SingleGrouop=ngenes.single)
-rownames(dat) &lt;- c(&quot;0hr_GABA&quot;,&quot;1hr_GABA&quot;,&quot;6hr_GABA&quot;,&quot;0hr_nmglut&quot;,&quot;1hr_nmglut&quot;,
-                   &quot;6hr_nmglut&quot;,&quot;0hr_npglut&quot;,&quot;1hr_npglut&quot;,&quot;6hr_npglut&quot;)
-knitr::kable(dat)</code></pre>
+settings were shown below; 3. Must be a protein coding gene</p>
+<p>Below are the eGenes selected for imputation in cTWAS. Multigroup
+cTWAS contain much more eGenes due to constructing a union.</p>
 <table>
 <thead>
 <tr class="header">
@@ -938,9 +974,8 @@ knitr::kable(dat)</code></pre>
 <p class="caption">nmglut single group: 6 hour</p>
 </div>
 </div>
-</div>
-<div id="ctwas-parameter-estimates-for-npglut" class="section level2">
-<h2>cTWAS parameter estimates for npglut</h2>
+<div id="ctwas-parameter-estimates-for-npglut" class="section level3">
+<h3>cTWAS parameter estimates for npglut</h3>
 <div class="figure">
 <img src="assets/npglut.png" alt="" />
 <p class="caption">npglut multigroup</p>
@@ -957,6 +992,14 @@ knitr::kable(dat)</code></pre>
 <img src="assets/6hr_npglut.png" alt="" />
 <p class="caption">npglut single group: 6 hour</p>
 </div>
+</div>
+</div>
+<div id="top-genes-under-dynamic-genetic-effects"
+class="section level2">
+<h2>Top genes under dynamic genetic effects</h2>
+<p>eGenes</p>
+<div id="section" class="section level3">
+<h3></h3>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -996,6 +1039,7 @@ loaded via a namespace (and not attached):
 [37] whisker_0.4      ps_1.6.0         promises_1.2.0.1 htmltools_0.5.2 
 [41] ellipsis_0.3.2   httpuv_1.6.5     utf8_1.2.2       stringi_1.7.6   
 [45] crayon_1.4.2    </code></pre>
+</div>
 </div>
 </div>
 
