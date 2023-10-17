@@ -11,9 +11,49 @@ editor_options:
 
 We have run the multigroup branch of [cTWAS](https://github.com/xinhe-lab/ctwas) on each cell type seperately. Three time points serve as the "group" for the cell type run.
 
-eGenes for each condition (the combination of cell type and time point) was selected with two criteria: (1) At least one SNP-gene pair has FDR<0.05 in any time point within the same cell type; (2) P value < 0.1 for the current condition.
+eGenes for each condition (the combination of cell type and time point) was selected with two criteria: (1) At least one SNP-gene pair has FDR<0.05 in any time point within the same cell type; (2) P value < 0.1 for the current condition. The number of genes for different settings were shown below:
+
+```{r}
+ngenes.multi <- c(4157, 4183, 4128, 2554, 2516, 2562, 5150, 5113, 5170)
+ngenes.single <- c(1798,2182,2296,926,1323,1186,2415,2917,2976)
+dat <- data.frame(MultiGroup=ngenes.multi, SingleGrouop=ngenes.single)
+rownames(dat) <- c("0hr_GABA","1hr_GABA","6hr_GABA","0hr_nmglut","1hr_nmglut",
+                   "6hr_nmglut","0hr_npglut","1hr_npglut","6hr_npglut")
+knitr::kable(dat)
+```
+
+
+
 
 ### cTWAS parameter estimates for GABA
 
 ![GABA multigroup](assets/GABA.png)
+
+![GABA single group: 0 hour](assets/0hr_GABA.png)
+
+![GABA single group: 1 hour](assets/1hr_GABA.png)
+
+![GABA single group: 6 hour](assets/6hr_GABA.png)
+
+### cTWAS parameter estimates for nmglut
+
+![nmglut multigroup](assets/nmglut.png)
+
+![nmglut single group: 0 hour](assets/0hr_nmglut.png)
+
+![nmglut single group: 1 hour](assets/1hr_nmglut.png)
+
+![nmglut single group: 6 hour](assets/6hr_nmglut.png)
+
+## cTWAS parameter estimates for npglut
+
+![npglut multigroup](assets/npglut.png)
+
+![npglut single group: 0 hour](assets/0hr_npglut.png)
+
+![npglut single group: 1 hour](assets/1hr_npglut.png)
+
+![npglut single group: 6 hour](assets/6hr_npglut.png)
+
+
 
