@@ -123,7 +123,7 @@ cTWAS will automatically merge LD regions if a gene spans across multiple region
 
 ## Rerunning cTWAS on subset fo genes
 
-Since PIP was estimated with 10% thining, we need to esstimate the PIP and performed fine mapping on the top genes. Specifically, with the same imputed gene expression and group priors, we run cTWAS at the specific gene locations with the full set of SNPs.
+Since PIP was estimated with 10% thining, we need to estimate the PIP and performed fine mapping on the top genes. Specifically, with the same imputed gene expression and group priors, we run cTWAS at the specific gene locations with the full set of SNPs.
 
 ![PIP comparison between initial run and the rerun](assets/rerun_vs_init.png)
 
