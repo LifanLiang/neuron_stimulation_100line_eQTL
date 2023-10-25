@@ -127,7 +127,7 @@ Since PIP was estimated with 10% thining, we need to esstimate the PIP and perfo
 
 ![PIP comparison between initial run and the rerun](assets/rerun_vs_init.png)
 
-Most top gene PIPs were overestimated in the initial run. There are 17 genes with PIP sums greater than 0.8 for the GABA cell type. Only 2 genes cross the threshold in both Glut cell types.
+Most top gene PIPs were overestimated in the initial run. There are 17 genes with PIP sums greater than 0.8 for the GABA cell type. Only 2 genes cross the threshold in both Glut cell types. In addition, all the remaining top genes in the Glut cell types were also in the top gene list of GABA. The NPIPB2 has high PIP in all cell types.
 
 ```{r, echo=F}
 GABA.rerun <- read.table("data/GABA_rerun_gene_PIP.txt", header=T)
