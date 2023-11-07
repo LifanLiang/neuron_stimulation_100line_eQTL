@@ -1,0 +1,40 @@
+---
+title: "single_cTWAS"
+author: "Lifan Liang"
+date: "2023-11-07"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+Single group cTWAS was run on dynamic eQTLs of each condition (6 combinations of cell types and time points, excluding the 0hr). Dynamic eQTLs were defined as FDR<0.05 in the current condition and P value > 0.1 in 0hr within corresponding cell type.
+
+## Prior parameters
+```{r, echo=F}
+params <- list()
+dest <- "data/single_dynamic/"
+files <- list.files(dest, pattern="rds")
+for(f in files) {
+  n <- substr(f,1,nchar(f)-11)
+  params[[n]] <- readRDS(paste0(dest,f))
+}
+```
+
+
+```{r, echo=F}
+group_prior <- do.call(rbind, lapply(params, function(x){x$group_prior}))
+colnames(group_prior)[2] <- "gene"
+knitr::kable(group_prior)
+```
+
+```{r, echo=F}
+group_var <- do.call(rbind, lapply(params, function(x){x$group_prior_var}))
+colnames(group_var)[2] <- "gene"
+knitr::kable(group_var)
+```
+
+### Examples of convergence plots
+
+![1 hour NPglut](assets/single_dynamic_shared_var_npglut1.png)
+![1 hour GABA](assets/single_dynamic_shared_var_GABA1.png)
+

@@ -16,19 +16,21 @@ eGenes for each condition (the combination of cell type and time point) was sele
 2. P value < 0.1 for the current condition. The number of genes for different settings were shown below; 
 3. Must be a protein coding gene
 
-Below are the eGenes selected for imputation in cTWAS. Multigroup cTWAS contain much more eGenes due to constructing a union.
+For the rerun with full set of SNPs, genes need to have a maximum PIP of at least 0.2 after screening.
+
+Below are the eGenes selected for imputation in cTWAS. Multigroup cTWAS contain much more eGenes due to constructing a union across time points.
 
 ```{r, echo=F}
 ngenes.multi <- c(4157, 4183, 4128, 2554, 2516, 2562, 5150, 5113, 5170)
 ngenes.single <- c(1798,2182,2296,926,1323,1186,2415,2917,2976)
-dat <- data.frame(MultiGroup=ngenes.multi, SingleGrouop=ngenes.single)
+dat <- data.frame(MultiGroup=ngenes.multi, SingleGroup=ngenes.single)
 rownames(dat) <- c("0hr_GABA","1hr_GABA","6hr_GABA","0hr_nmglut","1hr_nmglut",
                    "6hr_nmglut","0hr_npglut","1hr_npglut","6hr_npglut")
 knitr::kable(dat)
 ```
 
   
-## Initial parameter estimates 
+## Parameter estimates 
 
 Estimating all parameters by sampling 10% of SNPs. (thin=0.1)
 
@@ -40,23 +42,32 @@ Estimating all parameters by sampling 10% of SNPs. (thin=0.1)
 ### cTWAS parameter estimates for nmglut
 
 ![nmglut multigroup](assets/nmglut.png)
+```{r, echo=F}
+GABA.params <- readRDS("data/cellgroup_GABA_params.rds")
+GABA.params$convergence_plot
+```
 
+```{r, echo=F}
+npglut.params <- readRDS("data/cellgroup_npglut_params.rds")
+npglut.params$convergence_plot
+```
+
+```{r, echo=F}
+nmglut.params <- readRDS("data/cellgroup_nmglut_params.rds")
+nmglut.params$convergence_plot
+```
 
 ### cTWAS parameter estimates for npglut
 
 ![npglut multigroup](assets/npglut.png)
 
-### Comparing with single group parameters
-
-
-
 
 ### PVE proportion for each cell type
 
 ```{r, echo=F}
-GABA.params <- readRDS("data/multigroup_GABA_params.rds")
-npglut.params <- readRDS("data/multigroup_npglut_params.rds")
-nmglut.params <- readRDS("data/multigroup_nmglut_params.rds")
+GABA.params <- readRDS("data/cellgroup_GABA_params.rds")
+npglut.params <- readRDS("data/cellgroup_npglut_params.rds")
+nmglut.params <- readRDS("data/cellgroup_nmglut_params.rds")
 
 pve.port <- matrix(ncol=4, nrow=3)
 pve.port[1,1:3] <- (GABA.params$group_pve / GABA.params$total_pve)[2:4]
@@ -72,7 +83,7 @@ knitr::kable(pve.port1, caption="Genes accounting for 4% to 6% of total explaine
 
 ### eGenes with top PIPs
 
-Posterior inclusion probability (PIP) across time points summed up to be greater than 0.8 were considered top genes. GABA has 51 top genes. NMglut has 38 top genes. NPglut has 41 top genes. These are the candidate genes for running cTWAS with the full set of SNPs. "NA" means that the gene have no siginificant eQTLs in the corresponding condition.
+Posterior inclusion probability (PIP) across time points summed up to be greater than 0.8 were considered top genes. GABA has 51 top genes. NMglut has 36 top genes. NPglut has 42 top genes. These are the candidate genes for running cTWAS with the full set of SNPs. "NA" means that the gene have no significant eQTLs in the corresponding condition.
 
 ```{r, echo=F}
 GABA.pip <- read.table("data/GABA_gene_PIP.txt", header=T)
@@ -117,39 +128,4 @@ plot(x=all$PIP_sum.y, y=all$PIP_sum, pch=16, xlab="npglut PIP", ylab="GABA")
 text(1.0,1.1,paste0("corr: ", sprintf("%.3f",cor(all$PIP_sum.y, all$PIP_sum, use="complete.obs"))))
 ```
 
-### Ocurrence of region merging
-
-cTWAS will automatically merge LD regions if a gene spans across multiple regions. This is computationally expensive. Fortunately, with the merging option turned on, no merging was performed. This is probably because none of the genes selected for multi-group cTWAS spanned multiple LD regions.
-
-## Rerunning cTWAS on subset fo genes
-
-Since PIP was estimated with 10% thining, we need to estimate the PIP and performed fine mapping on the top genes. Specifically, with the same imputed gene expression and group priors, we run cTWAS at the specific gene locations with the full set of SNPs.
-
-![PIP comparison between initial run and the rerun](assets/rerun_vs_init.png)
-
-Most top gene PIPs were overestimated in the initial run. There are 17 genes with PIP sums greater than 0.8 for the GABA cell type. Only 2 genes cross the threshold in both Glut cell types. In addition, all the remaining top genes in the Glut cell types were also in the top gene list of GABA. The NPIPB2 has high PIP in all cell types.
-
-```{r, echo=F}
-GABA.rerun <- read.table("data/GABA_rerun_gene_PIP.txt", header=T)
-GABA.rerun <- GABA.rerun[GABA.rerun$PIP_sum>0.8,]
-GABA.rerun <- GABA.rerun[order(GABA.rerun$PIP_sum, decreasing = T),]
-rownames(GABA.rerun) <- NULL
-knitr::kable(GABA.rerun)
-```
-
-```{r, echo=F}
-nmglut.rerun <- read.table("data/nmglut_rerun_gene_PIP.txt", header=T)
-nmglut.rerun <- nmglut.rerun[nmglut.rerun$PIP_sum>0.8,]
-nmglut.rerun <- nmglut.rerun[order(nmglut.rerun$PIP_sum, decreasing = T),]
-rownames(nmglut.rerun) <- NULL
-knitr::kable(nmglut.rerun)
-```
-
-```{r, echo=F}
-npglut.rerun <- read.table("data/npglut_rerun_gene_PIP.txt", header=T)
-npglut.rerun <- npglut.rerun[npglut.rerun$PIP_sum>0.8,]
-npglut.rerun <- npglut.rerun[order(npglut.rerun$PIP_sum, decreasing = T),]
-rownames(npglut.rerun) <- NULL
-knitr::kable(npglut.rerun)
-```
 
