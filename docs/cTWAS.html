@@ -368,7 +368,7 @@ div.tocify {
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
 <span class="glyphicon glyphicon-list" aria-hidden="true"></span>
-workflowr <span class="glyphicon glyphicon-ok text-success"
+workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger"
 aria-hidden="true"></span>
 </button>
 </p>
@@ -379,8 +379,8 @@ aria-hidden="true"></span>
 </li>
 <li>
 <a data-toggle="tab" href="#checks"> Checks <span
-class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
-</a>
+class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span> </a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -393,9 +393,9 @@ class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
 </p>
 <p>
 <strong>Checks:</strong> <span
-class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6
 <span class="glyphicon glyphicon-exclamation-sign text-danger"
-aria-hidden="true"></span> 0
+aria-hidden="true"></span> 1
 </p>
 <p>
 <strong>Knit directory:</strong>
@@ -419,18 +419,21 @@ versions</em> tab lists the development history.
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate">
-<span class="glyphicon glyphicon-ok text-success"
-aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date
-</a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges">
+<span class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted
+changes </a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguptodate"
+<div id="strongRMarkdownfilestronguncommittedchanges"
 class="panel-collapse collapse">
 <div class="panel-body">
-<p>Great! Since the R Markdown file has been committed to the Git
-repository, you know the exact version of the code that produced these
-results.</p>
+<p>The R Markdown file has unstaged changes. To know which version of
+the R Markdown file created these results, you’ll want to first commit
+it to the Git repo. If you’re still working on the analysis, you can
+ignore this warning. When you’re finished, you can run
+<code>wflow_publish</code> to commit the R Markdown file and build the
+HTML.</p>
 </div>
 </div>
 </div>
@@ -521,15 +524,15 @@ project makes it easier to run your code on other machines.</p>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomLifanLiangneuronstimulation100lineeQTLtree41e9fcfe8ae8dbd10e4e324bfeff4319ab64ea3dtargetblank41e9fcfa">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomLifanLiangneuronstimulation100lineeQTLtreef3724fa824f9257cb977aaf5f2fdd8c23fed7372targetblankf3724faa">
 <span class="glyphicon glyphicon-ok text-success"
 aria-hidden="true"></span> <strong>Repository version:</strong>
-<a href="https://github.com/LifanLiang/neuron_stimulation_100line_eQTL/tree/41e9fcfe8ae8dbd10e4e324bfeff4319ab64ea3d" target="_blank">41e9fcf</a>
+<a href="https://github.com/LifanLiang/neuron_stimulation_100line_eQTL/tree/f3724fa824f9257cb977aaf5f2fdd8c23fed7372" target="_blank">f3724fa</a>
 </a>
 </p>
 </div>
 <div
-id="strongRepositoryversionstrongahrefhttpsgithubcomLifanLiangneuronstimulation100lineeQTLtree41e9fcfe8ae8dbd10e4e324bfeff4319ab64ea3dtargetblank41e9fcfa"
+id="strongRepositoryversionstrongahrefhttpsgithubcomLifanLiangneuronstimulation100lineeQTLtreef3724fa824f9257cb977aaf5f2fdd8c23fed7372targetblankf3724faa"
 class="panel-collapse collapse">
 <div class="panel-body">
 <p>
@@ -539,7 +542,7 @@ reproducibility.
 </p>
 <p>
 The results in this page were generated with repository version
-<a href="https://github.com/LifanLiang/neuron_stimulation_100line_eQTL/tree/41e9fcfe8ae8dbd10e4e324bfeff4319ab64ea3d" target="_blank">41e9fcf</a>.
+<a href="https://github.com/LifanLiang/neuron_stimulation_100line_eQTL/tree/f3724fa824f9257cb977aaf5f2fdd8c23fed7372" target="_blank">f3724fa</a>.
 See the <em>Past versions</em> tab to see a history of the changes made
 to the R Markdown and HTML files.
 </p>
@@ -556,6 +559,14 @@ were generated:
 Ignored files:
     Ignored:    .DS_Store
     Ignored:    data/.DS_Store
+
+Untracked files:
+    Untracked:  data/single_group_ctwas.zip
+    Untracked:  data/single_group_ctwas/
+
+Unstaged changes:
+    Modified:   analysis/cTWAS.Rmd
+    Modified:   analysis/single_cTWAS.Rmd
 
 </code></pre>
 <p>
@@ -600,6 +611,23 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/LifanLiang/neuron_stimulation_100line_eQTL/f3724fa824f9257cb977aaf5f2fdd8c23fed7372/docs/cTWAS.html" target="_blank">f3724fa</a>
+</td>
+<td>
+Lifan Liang
+</td>
+<td>
+2023-11-07
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -1362,44 +1390,12 @@ condition.</p>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">NUDT22</td>
-<td align="right">1.0869734</td>
-<td align="right">0.9378652</td>
-<td align="right">0.1491082</td>
-<td align="right">NA</td>
-<td align="right">-0.7887570</td>
-</tr>
-<tr class="even">
-<td align="left">KCNMA1</td>
-<td align="right">1.0586148</td>
-<td align="right">0.1628273</td>
-<td align="right">0.8330679</td>
-<td align="right">0.0627197</td>
-<td align="right">0.7329603</td>
-</tr>
-<tr class="odd">
-<td align="left">CHAC2</td>
-<td align="right">1.0542139</td>
-<td align="right">0.8289533</td>
-<td align="right">0.2116007</td>
-<td align="right">0.0136600</td>
-<td align="right">-0.6036926</td>
-</tr>
-<tr class="even">
 <td align="left">GALK2</td>
 <td align="right">1.0499762</td>
 <td align="right">0.0116613</td>
 <td align="right">0.0472718</td>
 <td align="right">0.9910431</td>
 <td align="right">1.0266537</td>
-</tr>
-<tr class="odd">
-<td align="left">ANKRD39</td>
-<td align="right">1.0264764</td>
-<td align="right">0.9809026</td>
-<td align="right">0.0293496</td>
-<td align="right">0.0162242</td>
-<td align="right">-0.9353288</td>
 </tr>
 <tr class="even">
 <td align="left">ARL14EP</td>
@@ -1410,20 +1406,20 @@ condition.</p>
 <td align="right">0.9763274</td>
 </tr>
 <tr class="odd">
-<td align="left">HLA-DMA</td>
-<td align="right">1.0091245</td>
-<td align="right">0.2840385</td>
-<td align="right">0.3553789</td>
-<td align="right">0.3697071</td>
-<td align="right">0.4410475</td>
-</tr>
-<tr class="even">
 <td align="left">CROT</td>
 <td align="right">1.0057338</td>
 <td align="right">0.0157423</td>
 <td align="right">NA</td>
 <td align="right">0.9899916</td>
 <td align="right">0.9742493</td>
+</tr>
+<tr class="even">
+<td align="left">NDUFA6</td>
+<td align="right">0.9767506</td>
+<td align="right">0.0074694</td>
+<td align="right">0.9595206</td>
+<td align="right">0.0097605</td>
+<td align="right">0.9618117</td>
 </tr>
 <tr class="odd">
 <td align="left">EFHB</td>
@@ -1434,60 +1430,12 @@ condition.</p>
 <td align="right">0.9560784</td>
 </tr>
 <tr class="even">
-<td align="left">PCDH7</td>
-<td align="right">1.0042423</td>
-<td align="right">0.9798550</td>
-<td align="right">0.0088368</td>
-<td align="right">0.0155505</td>
-<td align="right">-0.9554677</td>
-</tr>
-<tr class="odd">
-<td align="left">TMEM219</td>
-<td align="right">1.0033574</td>
-<td align="right">0.0298658</td>
-<td align="right">NA</td>
-<td align="right">0.9734916</td>
-<td align="right">0.9436257</td>
-</tr>
-<tr class="even">
-<td align="left">GGNBP2</td>
-<td align="right">0.9939430</td>
-<td align="right">0.0244289</td>
-<td align="right">0.8963715</td>
-<td align="right">0.0731426</td>
-<td align="right">0.9450851</td>
-</tr>
-<tr class="odd">
-<td align="left">RASA3</td>
-<td align="right">0.9938736</td>
-<td align="right">0.9632367</td>
-<td align="right">0.0104415</td>
-<td align="right">0.0201953</td>
-<td align="right">-0.9325999</td>
-</tr>
-<tr class="even">
-<td align="left">CDPF1</td>
-<td align="right">0.9923198</td>
-<td align="right">0.9651247</td>
-<td align="right">0.0107282</td>
-<td align="right">0.0164669</td>
-<td align="right">-0.9379297</td>
-</tr>
-<tr class="odd">
-<td align="left">SERPINI1</td>
-<td align="right">0.9918508</td>
-<td align="right">0.1725740</td>
-<td align="right">0.3201477</td>
-<td align="right">0.4991291</td>
-<td align="right">0.6467027</td>
-</tr>
-<tr class="even">
-<td align="left">GLTP</td>
-<td align="right">0.9889936</td>
-<td align="right">0.0221734</td>
-<td align="right">0.0095464</td>
-<td align="right">0.9572739</td>
-<td align="right">0.9446469</td>
+<td align="left">MCHR1</td>
+<td align="right">0.9630899</td>
+<td align="right">0.0066189</td>
+<td align="right">0.0042811</td>
+<td align="right">0.9521898</td>
+<td align="right">0.9498521</td>
 </tr>
 <tr class="odd">
 <td align="left">RCC1</td>
@@ -1498,6 +1446,30 @@ condition.</p>
 <td align="right">0.9455092</td>
 </tr>
 <tr class="even">
+<td align="left">GGNBP2</td>
+<td align="right">0.9939430</td>
+<td align="right">0.0244289</td>
+<td align="right">0.8963715</td>
+<td align="right">0.0731426</td>
+<td align="right">0.9450851</td>
+</tr>
+<tr class="odd">
+<td align="left">GLTP</td>
+<td align="right">0.9889936</td>
+<td align="right">0.0221734</td>
+<td align="right">0.0095464</td>
+<td align="right">0.9572739</td>
+<td align="right">0.9446469</td>
+</tr>
+<tr class="even">
+<td align="left">TMEM219</td>
+<td align="right">1.0033574</td>
+<td align="right">0.0298658</td>
+<td align="right">NA</td>
+<td align="right">0.9734916</td>
+<td align="right">0.9436257</td>
+</tr>
+<tr class="odd">
 <td align="left">RBBP5</td>
 <td align="right">0.9837942</td>
 <td align="right">0.0258466</td>
@@ -1505,37 +1477,13 @@ condition.</p>
 <td align="right">0.5835722</td>
 <td align="right">0.9321009</td>
 </tr>
-<tr class="odd">
-<td align="left">NDUFA6</td>
-<td align="right">0.9767506</td>
-<td align="right">0.0074694</td>
-<td align="right">0.9595206</td>
-<td align="right">0.0097605</td>
-<td align="right">0.9618117</td>
-</tr>
 <tr class="even">
-<td align="left">PPFIA3</td>
-<td align="right">0.9707538</td>
-<td align="right">0.7607451</td>
-<td align="right">0.1860360</td>
-<td align="right">0.0239728</td>
-<td align="right">-0.5507364</td>
-</tr>
-<tr class="odd">
-<td align="left">MCHR1</td>
-<td align="right">0.9630899</td>
-<td align="right">0.0066189</td>
-<td align="right">0.0042811</td>
-<td align="right">0.9521898</td>
-<td align="right">0.9498521</td>
-</tr>
-<tr class="even">
-<td align="left">LRCH4</td>
-<td align="right">0.9616850</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">0.9616850</td>
-<td align="right">0.9616850</td>
+<td align="left">XRN2</td>
+<td align="right">0.9463454</td>
+<td align="right">0.0158973</td>
+<td align="right">0.0212032</td>
+<td align="right">0.9092448</td>
+<td align="right">0.9145507</td>
 </tr>
 <tr class="odd">
 <td align="left">CEBPZ</td>
@@ -1546,6 +1494,22 @@ condition.</p>
 <td align="right">0.9070807</td>
 </tr>
 <tr class="even">
+<td align="left">LRFN2</td>
+<td align="right">0.8835407</td>
+<td align="right">0.0165535</td>
+<td align="right">0.8380361</td>
+<td align="right">0.0289510</td>
+<td align="right">0.8504336</td>
+</tr>
+<tr class="odd">
+<td align="left">FBXO44</td>
+<td align="right">0.8717883</td>
+<td align="right">0.0132596</td>
+<td align="right">NA</td>
+<td align="right">0.8585287</td>
+<td align="right">0.8452691</td>
+</tr>
+<tr class="even">
 <td align="left">ATP5MC1</td>
 <td align="right">0.9544134</td>
 <td align="right">0.0708316</td>
@@ -1554,28 +1518,12 @@ condition.</p>
 <td align="right">0.8127502</td>
 </tr>
 <tr class="odd">
-<td align="left">SYNGR1</td>
-<td align="right">0.9535737</td>
-<td align="right">0.9164597</td>
-<td align="right">0.0188808</td>
-<td align="right">0.0182332</td>
-<td align="right">-0.8793458</td>
-</tr>
-<tr class="even">
-<td align="left">GPR137</td>
-<td align="right">0.9472145</td>
+<td align="left">CTNNAL1</td>
+<td align="right">0.8305312</td>
+<td align="right">0.0148831</td>
+<td align="right">0.8156481</td>
 <td align="right">NA</td>
-<td align="right">0.0065741</td>
-<td align="right">0.9406404</td>
-<td align="right">0.9472145</td>
-</tr>
-<tr class="odd">
-<td align="left">XRN2</td>
-<td align="right">0.9463454</td>
-<td align="right">0.0158973</td>
-<td align="right">0.0212032</td>
-<td align="right">0.9092448</td>
-<td align="right">0.9145507</td>
+<td align="right">0.8007650</td>
 </tr>
 <tr class="even">
 <td align="left">MFAP3</td>
@@ -1586,60 +1534,28 @@ condition.</p>
 <td align="right">0.7976885</td>
 </tr>
 <tr class="odd">
-<td align="left">TBC1D13</td>
-<td align="right">0.9377078</td>
-<td align="right">0.9022253</td>
-<td align="right">0.0126538</td>
-<td align="right">0.0228287</td>
-<td align="right">-0.8667428</td>
+<td align="left">LRMDA</td>
+<td align="right">0.8646979</td>
+<td align="right">0.0384553</td>
+<td align="right">0.0102447</td>
+<td align="right">0.8159978</td>
+<td align="right">0.7877872</td>
 </tr>
 <tr class="even">
-<td align="left">TRA2B</td>
-<td align="right">0.8954401</td>
-<td align="right">0.8352478</td>
+<td align="left">ZNF638</td>
+<td align="right">0.8000298</td>
+<td align="right">0.0130915</td>
 <td align="right">NA</td>
-<td align="right">0.0601924</td>
-<td align="right">-0.7750554</td>
+<td align="right">0.7869383</td>
+<td align="right">0.7738468</td>
 </tr>
 <tr class="odd">
-<td align="left">NPIPB2</td>
-<td align="right">0.8859226</td>
-<td align="right">0.3722625</td>
-<td align="right">0.0289870</td>
-<td align="right">0.4846731</td>
-<td align="right">0.1413977</td>
-</tr>
-<tr class="even">
-<td align="left">LRFN2</td>
-<td align="right">0.8835407</td>
-<td align="right">0.0165535</td>
-<td align="right">0.8380361</td>
-<td align="right">0.0289510</td>
-<td align="right">0.8504336</td>
-</tr>
-<tr class="odd">
-<td align="left">PCNX1</td>
-<td align="right">0.8729807</td>
-<td align="right">0.8729807</td>
+<td align="left">SCML4</td>
+<td align="right">0.8053856</td>
+<td align="right">0.0198502</td>
+<td align="right">0.7855354</td>
 <td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">-0.8729807</td>
-</tr>
-<tr class="even">
-<td align="left">FBXO44</td>
-<td align="right">0.8717883</td>
-<td align="right">0.0132596</td>
-<td align="right">NA</td>
-<td align="right">0.8585287</td>
-<td align="right">0.8452691</td>
-</tr>
-<tr class="odd">
-<td align="left">RBM6</td>
-<td align="right">0.8711680</td>
-<td align="right">0.0616731</td>
-<td align="right">0.0077845</td>
-<td align="right">0.8017104</td>
-<td align="right">0.7478218</td>
+<td align="right">0.7656851</td>
 </tr>
 <tr class="even">
 <td align="left">FAM120AOS</td>
@@ -1650,30 +1566,22 @@ condition.</p>
 <td align="right">0.7595948</td>
 </tr>
 <tr class="odd">
-<td align="left">CDIP1</td>
-<td align="right">0.8650407</td>
-<td align="right">NA</td>
-<td align="right">0.8193648</td>
-<td align="right">0.0456758</td>
-<td align="right">0.8650407</td>
+<td align="left">RBM6</td>
+<td align="right">0.8711680</td>
+<td align="right">0.0616731</td>
+<td align="right">0.0077845</td>
+<td align="right">0.8017104</td>
+<td align="right">0.7478218</td>
 </tr>
 <tr class="even">
-<td align="left">LRMDA</td>
-<td align="right">0.8646979</td>
-<td align="right">0.0384553</td>
-<td align="right">0.0102447</td>
-<td align="right">0.8159978</td>
-<td align="right">0.7877872</td>
+<td align="left">KCNMA1</td>
+<td align="right">1.0586148</td>
+<td align="right">0.1628273</td>
+<td align="right">0.8330679</td>
+<td align="right">0.0627197</td>
+<td align="right">0.7329603</td>
 </tr>
 <tr class="odd">
-<td align="left">PLAA</td>
-<td align="right">0.8602175</td>
-<td align="right">0.8097175</td>
-<td align="right">0.0327660</td>
-<td align="right">0.0177341</td>
-<td align="right">-0.7592174</td>
-</tr>
-<tr class="even">
 <td align="left">NLRC5</td>
 <td align="right">0.8589574</td>
 <td align="right">0.0694784</td>
@@ -1681,15 +1589,15 @@ condition.</p>
 <td align="right">0.0223742</td>
 <td align="right">0.7200007</td>
 </tr>
-<tr class="odd">
-<td align="left">ZNF852</td>
-<td align="right">0.8557082</td>
-<td align="right">0.8367477</td>
-<td align="right">0.0189604</td>
-<td align="right">NA</td>
-<td align="right">-0.8177873</td>
-</tr>
 <tr class="even">
+<td align="left">SERPINI1</td>
+<td align="right">0.9918508</td>
+<td align="right">0.1725740</td>
+<td align="right">0.3201477</td>
+<td align="right">0.4991291</td>
+<td align="right">0.6467027</td>
+</tr>
+<tr class="odd">
 <td align="left">LONRF1</td>
 <td align="right">0.8495395</td>
 <td align="right">0.1163882</td>
@@ -1697,15 +1605,15 @@ condition.</p>
 <td align="right">0.7331513</td>
 <td align="right">0.6167631</td>
 </tr>
-<tr class="odd">
-<td align="left">CHL1</td>
-<td align="right">0.8489523</td>
-<td align="right">0.2706059</td>
-<td align="right">0.2261245</td>
-<td align="right">0.3522219</td>
-<td align="right">0.3077405</td>
-</tr>
 <tr class="even">
+<td align="left">HLA-DMA</td>
+<td align="right">1.0091245</td>
+<td align="right">0.2840385</td>
+<td align="right">0.3553789</td>
+<td align="right">0.3697071</td>
+<td align="right">0.4410475</td>
+</tr>
+<tr class="odd">
 <td align="left">PYGO2</td>
 <td align="right">0.8363077</td>
 <td align="right">0.2114025</td>
@@ -1713,37 +1621,29 @@ condition.</p>
 <td align="right">0.6026139</td>
 <td align="right">0.4135027</td>
 </tr>
-<tr class="odd">
-<td align="left">DCP1B</td>
-<td align="right">0.8324851</td>
-<td align="right">0.7979858</td>
-<td align="right">0.0067389</td>
-<td align="right">0.0277604</td>
-<td align="right">-0.7634866</td>
-</tr>
 <tr class="even">
-<td align="left">CTNNAL1</td>
-<td align="right">0.8305312</td>
-<td align="right">0.0148831</td>
-<td align="right">0.8156481</td>
-<td align="right">NA</td>
-<td align="right">0.8007650</td>
+<td align="left">CHL1</td>
+<td align="right">0.8489523</td>
+<td align="right">0.2706059</td>
+<td align="right">0.2261245</td>
+<td align="right">0.3522219</td>
+<td align="right">0.3077405</td>
 </tr>
 <tr class="odd">
-<td align="left">INSYN2A</td>
-<td align="right">0.8291783</td>
-<td align="right">0.8291783</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">-0.8291783</td>
+<td align="left">NPIPB2</td>
+<td align="right">0.8859226</td>
+<td align="right">0.3722625</td>
+<td align="right">0.0289870</td>
+<td align="right">0.4846731</td>
+<td align="right">0.1413977</td>
 </tr>
 <tr class="even">
-<td align="left">ATG13</td>
-<td align="right">0.8277512</td>
-<td align="right">0.7796507</td>
-<td align="right">0.0318826</td>
-<td align="right">0.0162179</td>
-<td align="right">-0.7315502</td>
+<td align="left">PPFIA3</td>
+<td align="right">0.9707538</td>
+<td align="right">0.7607451</td>
+<td align="right">0.1860360</td>
+<td align="right">0.0239728</td>
+<td align="right">-0.5507364</td>
 </tr>
 <tr class="odd">
 <td align="left">CCDC60</td>
@@ -1754,20 +1654,148 @@ condition.</p>
 <td align="right">-0.5947247</td>
 </tr>
 <tr class="even">
-<td align="left">SCML4</td>
-<td align="right">0.8053856</td>
-<td align="right">0.0198502</td>
-<td align="right">0.7855354</td>
-<td align="right">NA</td>
-<td align="right">0.7656851</td>
+<td align="left">CHAC2</td>
+<td align="right">1.0542139</td>
+<td align="right">0.8289533</td>
+<td align="right">0.2116007</td>
+<td align="right">0.0136600</td>
+<td align="right">-0.6036926</td>
 </tr>
 <tr class="odd">
-<td align="left">ZNF638</td>
-<td align="right">0.8000298</td>
-<td align="right">0.0130915</td>
+<td align="left">ATG13</td>
+<td align="right">0.8277512</td>
+<td align="right">0.7796507</td>
+<td align="right">0.0318826</td>
+<td align="right">0.0162179</td>
+<td align="right">-0.7315502</td>
+</tr>
+<tr class="even">
+<td align="left">PLAA</td>
+<td align="right">0.8602175</td>
+<td align="right">0.8097175</td>
+<td align="right">0.0327660</td>
+<td align="right">0.0177341</td>
+<td align="right">-0.7592174</td>
+</tr>
+<tr class="odd">
+<td align="left">DCP1B</td>
+<td align="right">0.8324851</td>
+<td align="right">0.7979858</td>
+<td align="right">0.0067389</td>
+<td align="right">0.0277604</td>
+<td align="right">-0.7634866</td>
+</tr>
+<tr class="even">
+<td align="left">TRA2B</td>
+<td align="right">0.8954401</td>
+<td align="right">0.8352478</td>
 <td align="right">NA</td>
-<td align="right">0.7869383</td>
-<td align="right">0.7738468</td>
+<td align="right">0.0601924</td>
+<td align="right">-0.7750554</td>
+</tr>
+<tr class="odd">
+<td align="left">NUDT22</td>
+<td align="right">1.0869734</td>
+<td align="right">0.9378652</td>
+<td align="right">0.1491082</td>
+<td align="right">NA</td>
+<td align="right">-0.7887570</td>
+</tr>
+<tr class="even">
+<td align="left">ZNF852</td>
+<td align="right">0.8557082</td>
+<td align="right">0.8367477</td>
+<td align="right">0.0189604</td>
+<td align="right">NA</td>
+<td align="right">-0.8177873</td>
+</tr>
+<tr class="odd">
+<td align="left">INSYN2A</td>
+<td align="right">0.8291783</td>
+<td align="right">0.8291783</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">-0.8291783</td>
+</tr>
+<tr class="even">
+<td align="left">TBC1D13</td>
+<td align="right">0.9377078</td>
+<td align="right">0.9022253</td>
+<td align="right">0.0126538</td>
+<td align="right">0.0228287</td>
+<td align="right">-0.8667428</td>
+</tr>
+<tr class="odd">
+<td align="left">PCNX1</td>
+<td align="right">0.8729807</td>
+<td align="right">0.8729807</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">-0.8729807</td>
+</tr>
+<tr class="even">
+<td align="left">SYNGR1</td>
+<td align="right">0.9535737</td>
+<td align="right">0.9164597</td>
+<td align="right">0.0188808</td>
+<td align="right">0.0182332</td>
+<td align="right">-0.8793458</td>
+</tr>
+<tr class="odd">
+<td align="left">RASA3</td>
+<td align="right">0.9938736</td>
+<td align="right">0.9632367</td>
+<td align="right">0.0104415</td>
+<td align="right">0.0201953</td>
+<td align="right">-0.9325999</td>
+</tr>
+<tr class="even">
+<td align="left">ANKRD39</td>
+<td align="right">1.0264764</td>
+<td align="right">0.9809026</td>
+<td align="right">0.0293496</td>
+<td align="right">0.0162242</td>
+<td align="right">-0.9353288</td>
+</tr>
+<tr class="odd">
+<td align="left">CDPF1</td>
+<td align="right">0.9923198</td>
+<td align="right">0.9651247</td>
+<td align="right">0.0107282</td>
+<td align="right">0.0164669</td>
+<td align="right">-0.9379297</td>
+</tr>
+<tr class="even">
+<td align="left">PCDH7</td>
+<td align="right">1.0042423</td>
+<td align="right">0.9798550</td>
+<td align="right">0.0088368</td>
+<td align="right">0.0155505</td>
+<td align="right">-0.9554677</td>
+</tr>
+<tr class="odd">
+<td align="left">LRCH4</td>
+<td align="right">0.9616850</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">0.9616850</td>
+<td align="right">0.9616850</td>
+</tr>
+<tr class="even">
+<td align="left">GPR137</td>
+<td align="right">0.9472145</td>
+<td align="right">NA</td>
+<td align="right">0.0065741</td>
+<td align="right">0.9406404</td>
+<td align="right">0.9472145</td>
+</tr>
+<tr class="odd">
+<td align="left">CDIP1</td>
+<td align="right">0.8650407</td>
+<td align="right">NA</td>
+<td align="right">0.8193648</td>
+<td align="right">0.0456758</td>
+<td align="right">0.8650407</td>
 </tr>
 </tbody>
 </table>
@@ -1793,14 +1821,6 @@ condition.</p>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">KIAA0319</td>
-<td align="right">1.5386851</td>
-<td align="right">NA</td>
-<td align="right">0.9290925</td>
-<td align="right">0.6095926</td>
-<td align="right">1.5386851</td>
-</tr>
-<tr class="even">
 <td align="left">TDRD6</td>
 <td align="right">1.0918803</td>
 <td align="right">0.0023007</td>
@@ -1808,21 +1828,13 @@ condition.</p>
 <td align="right">0.1410775</td>
 <td align="right">1.0872789</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">NGEF</td>
 <td align="right">1.0546695</td>
 <td align="right">0.0021949</td>
 <td align="right">0.9540519</td>
 <td align="right">0.0984227</td>
 <td align="right">1.0502797</td>
-</tr>
-<tr class="even">
-<td align="left">GLIPR2</td>
-<td align="right">1.0352918</td>
-<td align="right">0.0080940</td>
-<td align="right">0.9850915</td>
-<td align="right">0.0421063</td>
-<td align="right">1.0191039</td>
 </tr>
 <tr class="odd">
 <td align="left">HLA-DMA</td>
@@ -1833,12 +1845,12 @@ condition.</p>
 <td align="right">1.0210401</td>
 </tr>
 <tr class="even">
-<td align="left">ZMYND10</td>
-<td align="right">1.0304008</td>
-<td align="right">NA</td>
-<td align="right">0.0360545</td>
-<td align="right">0.9943463</td>
-<td align="right">1.0304008</td>
+<td align="left">GLIPR2</td>
+<td align="right">1.0352918</td>
+<td align="right">0.0080940</td>
+<td align="right">0.9850915</td>
+<td align="right">0.0421063</td>
+<td align="right">1.0191039</td>
 </tr>
 <tr class="odd">
 <td align="left">FOXN2</td>
@@ -1847,22 +1859,6 @@ condition.</p>
 <td align="right">0.9888052</td>
 <td align="right">0.0297205</td>
 <td align="right">1.0115887</td>
-</tr>
-<tr class="even">
-<td align="left">ANKRD45</td>
-<td align="right">1.0128922</td>
-<td align="right">NA</td>
-<td align="right">0.9604396</td>
-<td align="right">0.0524525</td>
-<td align="right">1.0128922</td>
-</tr>
-<tr class="odd">
-<td align="left">C17orf75</td>
-<td align="right">1.0108147</td>
-<td align="right">NA</td>
-<td align="right">0.1619486</td>
-<td align="right">0.8488661</td>
-<td align="right">1.0108147</td>
 </tr>
 <tr class="even">
 <td align="left">CYP7B1</td>
@@ -1881,14 +1877,6 @@ condition.</p>
 <td align="right">0.9939118</td>
 </tr>
 <tr class="even">
-<td align="left">CPT1C</td>
-<td align="right">0.9879569</td>
-<td align="right">NA</td>
-<td align="right">0.9879569</td>
-<td align="right">NA</td>
-<td align="right">0.9879569</td>
-</tr>
-<tr class="odd">
 <td align="left">DNPH1</td>
 <td align="right">0.9806041</td>
 <td align="right">0.0154048</td>
@@ -1896,13 +1884,69 @@ condition.</p>
 <td align="right">0.0265949</td>
 <td align="right">0.9497946</td>
 </tr>
+<tr class="odd">
+<td align="left">ACYP2</td>
+<td align="right">0.9551205</td>
+<td align="right">0.0032281</td>
+<td align="right">0.0597019</td>
+<td align="right">0.8921905</td>
+<td align="right">0.9486643</td>
+</tr>
 <tr class="even">
+<td align="left">OXLD1</td>
+<td align="right">0.9457363</td>
+<td align="right">0.0027329</td>
+<td align="right">0.0460262</td>
+<td align="right">0.8969771</td>
+<td align="right">0.9402705</td>
+</tr>
+<tr class="odd">
 <td align="left">DCP1B</td>
 <td align="right">0.9670935</td>
 <td align="right">0.0147349</td>
 <td align="right">0.9169144</td>
 <td align="right">0.0354442</td>
 <td align="right">0.9376237</td>
+</tr>
+<tr class="even">
+<td align="left">CXXC5</td>
+<td align="right">0.9255876</td>
+<td align="right">0.0018701</td>
+<td align="right">0.0253466</td>
+<td align="right">0.8983708</td>
+<td align="right">0.9218473</td>
+</tr>
+<tr class="odd">
+<td align="left">CYP2D6</td>
+<td align="right">0.9214084</td>
+<td align="right">0.0017077</td>
+<td align="right">0.8428334</td>
+<td align="right">0.0768672</td>
+<td align="right">0.9179929</td>
+</tr>
+<tr class="even">
+<td align="left">ADAMTS2</td>
+<td align="right">0.8970327</td>
+<td align="right">0.0033236</td>
+<td align="right">0.8683194</td>
+<td align="right">0.0253897</td>
+<td align="right">0.8903855</td>
+</tr>
+<tr class="odd">
+<td align="left">ATE1</td>
+<td align="right">0.8858868</td>
+<td align="right">0.0057700</td>
+<td align="right">0.5053394</td>
+<td align="right">0.3747774</td>
+<td align="right">0.8743468</td>
+</tr>
+<tr class="even">
+<td align="left">CCDC122</td>
+<td align="right">0.8833966</td>
+<td align="right">0.0060581</td>
+<td align="right">0.3162950</td>
+<td align="right">0.5610435</td>
+<td align="right">0.8712804</td>
 </tr>
 <tr class="odd">
 <td align="left">NPIPB2</td>
@@ -1913,108 +1957,12 @@ condition.</p>
 <td align="right">0.8616522</td>
 </tr>
 <tr class="even">
-<td align="left">ACYP2</td>
-<td align="right">0.9551205</td>
-<td align="right">0.0032281</td>
-<td align="right">0.0597019</td>
-<td align="right">0.8921905</td>
-<td align="right">0.9486643</td>
-</tr>
-<tr class="odd">
-<td align="left">OXLD1</td>
-<td align="right">0.9457363</td>
-<td align="right">0.0027329</td>
-<td align="right">0.0460262</td>
-<td align="right">0.8969771</td>
-<td align="right">0.9402705</td>
-</tr>
-<tr class="even">
-<td align="left">ATP5PO</td>
-<td align="right">0.9380107</td>
-<td align="right">0.0672226</td>
-<td align="right">0.8707881</td>
-<td align="right">NA</td>
-<td align="right">0.8035655</td>
-</tr>
-<tr class="odd">
-<td align="left">CXXC5</td>
-<td align="right">0.9255876</td>
-<td align="right">0.0018701</td>
-<td align="right">0.0253466</td>
-<td align="right">0.8983708</td>
-<td align="right">0.9218473</td>
-</tr>
-<tr class="even">
-<td align="left">CYP2D6</td>
-<td align="right">0.9214084</td>
-<td align="right">0.0017077</td>
-<td align="right">0.8428334</td>
-<td align="right">0.0768672</td>
-<td align="right">0.9179929</td>
-</tr>
-<tr class="odd">
-<td align="left">ADAMTS2</td>
-<td align="right">0.8970327</td>
-<td align="right">0.0033236</td>
-<td align="right">0.8683194</td>
-<td align="right">0.0253897</td>
-<td align="right">0.8903855</td>
-</tr>
-<tr class="even">
-<td align="left">ATE1</td>
-<td align="right">0.8858868</td>
-<td align="right">0.0057700</td>
-<td align="right">0.5053394</td>
-<td align="right">0.3747774</td>
-<td align="right">0.8743468</td>
-</tr>
-<tr class="odd">
-<td align="left">CCDC122</td>
-<td align="right">0.8833966</td>
-<td align="right">0.0060581</td>
-<td align="right">0.3162950</td>
-<td align="right">0.5610435</td>
-<td align="right">0.8712804</td>
-</tr>
-<tr class="even">
-<td align="left">CD46</td>
-<td align="right">0.8827728</td>
-<td align="right">0.0528717</td>
-<td align="right">0.0409581</td>
-<td align="right">0.7889430</td>
-<td align="right">0.7770295</td>
-</tr>
-<tr class="odd">
-<td align="left">C1QTNF4</td>
-<td align="right">0.8736132</td>
-<td align="right">NA</td>
-<td align="right">0.8736132</td>
-<td align="right">NA</td>
-<td align="right">0.8736132</td>
-</tr>
-<tr class="even">
 <td align="left">KALRN</td>
 <td align="right">0.8666902</td>
 <td align="right">0.0038857</td>
 <td align="right">0.0486594</td>
 <td align="right">0.8141450</td>
 <td align="right">0.8589187</td>
-</tr>
-<tr class="odd">
-<td align="left">EEFSEC</td>
-<td align="right">0.8630092</td>
-<td align="right">0.0508074</td>
-<td align="right">0.4756563</td>
-<td align="right">0.3365454</td>
-<td align="right">0.7613943</td>
-</tr>
-<tr class="even">
-<td align="left">DNAH7</td>
-<td align="right">0.8571767</td>
-<td align="right">0.0041214</td>
-<td align="right">0.0409945</td>
-<td align="right">0.8120609</td>
-<td align="right">0.8489340</td>
 </tr>
 <tr class="odd">
 <td align="left">TSPAN2</td>
@@ -2025,6 +1973,14 @@ condition.</p>
 <td align="right">0.8491236</td>
 </tr>
 <tr class="even">
+<td align="left">DNAH7</td>
+<td align="right">0.8571767</td>
+<td align="right">0.0041214</td>
+<td align="right">0.0409945</td>
+<td align="right">0.8120609</td>
+<td align="right">0.8489340</td>
+</tr>
+<tr class="odd">
 <td align="left">KDM4C</td>
 <td align="right">0.8516559</td>
 <td align="right">0.0044345</td>
@@ -2032,7 +1988,7 @@ condition.</p>
 <td align="right">0.0306920</td>
 <td align="right">0.8427870</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">SMYD5</td>
 <td align="right">0.8471234</td>
 <td align="right">0.0039728</td>
@@ -2040,21 +1996,13 @@ condition.</p>
 <td align="right">0.0251286</td>
 <td align="right">0.8391778</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">METRN</td>
 <td align="right">0.8411751</td>
 <td align="right">0.0144960</td>
 <td align="right">0.1812462</td>
 <td align="right">0.6454330</td>
 <td align="right">0.8121832</td>
-</tr>
-<tr class="odd">
-<td align="left">RFLNA</td>
-<td align="right">0.8342737</td>
-<td align="right">0.6955596</td>
-<td align="right">0.0409090</td>
-<td align="right">0.0978051</td>
-<td align="right">-0.5568456</td>
 </tr>
 <tr class="even">
 <td align="left">KCNN3</td>
@@ -2073,12 +2021,92 @@ condition.</p>
 <td align="right">0.8093206</td>
 </tr>
 <tr class="even">
+<td align="left">ATP5PO</td>
+<td align="right">0.9380107</td>
+<td align="right">0.0672226</td>
+<td align="right">0.8707881</td>
+<td align="right">NA</td>
+<td align="right">0.8035655</td>
+</tr>
+<tr class="odd">
+<td align="left">CD46</td>
+<td align="right">0.8827728</td>
+<td align="right">0.0528717</td>
+<td align="right">0.0409581</td>
+<td align="right">0.7889430</td>
+<td align="right">0.7770295</td>
+</tr>
+<tr class="even">
+<td align="left">EEFSEC</td>
+<td align="right">0.8630092</td>
+<td align="right">0.0508074</td>
+<td align="right">0.4756563</td>
+<td align="right">0.3365454</td>
+<td align="right">0.7613943</td>
+</tr>
+<tr class="odd">
+<td align="left">RFLNA</td>
+<td align="right">0.8342737</td>
+<td align="right">0.6955596</td>
+<td align="right">0.0409090</td>
+<td align="right">0.0978051</td>
+<td align="right">-0.5568456</td>
+</tr>
+<tr class="even">
+<td align="left">ANKRD45</td>
+<td align="right">1.0128922</td>
+<td align="right">NA</td>
+<td align="right">0.9604396</td>
+<td align="right">0.0524525</td>
+<td align="right">1.0128922</td>
+</tr>
+<tr class="odd">
+<td align="left">C17orf75</td>
+<td align="right">1.0108147</td>
+<td align="right">NA</td>
+<td align="right">0.1619486</td>
+<td align="right">0.8488661</td>
+<td align="right">1.0108147</td>
+</tr>
+<tr class="even">
+<td align="left">C1QTNF4</td>
+<td align="right">0.8736132</td>
+<td align="right">NA</td>
+<td align="right">0.8736132</td>
+<td align="right">NA</td>
+<td align="right">0.8736132</td>
+</tr>
+<tr class="odd">
+<td align="left">CPT1C</td>
+<td align="right">0.9879569</td>
+<td align="right">NA</td>
+<td align="right">0.9879569</td>
+<td align="right">NA</td>
+<td align="right">0.9879569</td>
+</tr>
+<tr class="even">
+<td align="left">KIAA0319</td>
+<td align="right">1.5386851</td>
+<td align="right">NA</td>
+<td align="right">0.9290925</td>
+<td align="right">0.6095926</td>
+<td align="right">1.5386851</td>
+</tr>
+<tr class="odd">
 <td align="left">SPATS2</td>
 <td align="right">0.8081127</td>
 <td align="right">NA</td>
 <td align="right">0.8081127</td>
 <td align="right">NA</td>
 <td align="right">0.8081127</td>
+</tr>
+<tr class="even">
+<td align="left">ZMYND10</td>
+<td align="right">1.0304008</td>
+<td align="right">NA</td>
+<td align="right">0.0360545</td>
+<td align="right">0.9943463</td>
+<td align="right">1.0304008</td>
 </tr>
 </tbody>
 </table>
@@ -2104,28 +2132,12 @@ condition.</p>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">AUTS2</td>
-<td align="right">1.1117249</td>
-<td align="right">0.1644127</td>
-<td align="right">0.6738130</td>
-<td align="right">0.2734992</td>
-<td align="right">0.7828994</td>
-</tr>
-<tr class="even">
-<td align="left">ZNF823</td>
-<td align="right">1.0427663</td>
-<td align="right">0.0385086</td>
-<td align="right">0.9943159</td>
-<td align="right">0.0099418</td>
-<td align="right">0.9657491</td>
-</tr>
-<tr class="odd">
-<td align="left">BMF</td>
-<td align="right">1.0210662</td>
-<td align="right">0.9908971</td>
-<td align="right">0.0160277</td>
-<td align="right">0.0141415</td>
-<td align="right">-0.9607279</td>
+<td align="left">NAGA</td>
+<td align="right">1.0012158</td>
+<td align="right">0.0049169</td>
+<td align="right">0.0028616</td>
+<td align="right">0.9934373</td>
+<td align="right">0.9913820</td>
 </tr>
 <tr class="even">
 <td align="left">THBS3</td>
@@ -2136,36 +2148,20 @@ condition.</p>
 <td align="right">0.9816504</td>
 </tr>
 <tr class="odd">
-<td align="left">CRAT</td>
-<td align="right">1.0031045</td>
-<td align="right">0.9589551</td>
-<td align="right">0.0079337</td>
-<td align="right">0.0362157</td>
-<td align="right">-0.9148056</td>
-</tr>
-<tr class="even">
-<td align="left">NAGA</td>
-<td align="right">1.0012158</td>
-<td align="right">0.0049169</td>
-<td align="right">0.0028616</td>
-<td align="right">0.9934373</td>
-<td align="right">0.9913820</td>
-</tr>
-<tr class="odd">
-<td align="left">TMX1</td>
-<td align="right">0.9860060</td>
-<td align="right">0.0119220</td>
-<td align="right">0.0064451</td>
-<td align="right">0.9676389</td>
-<td align="right">0.9621620</td>
-</tr>
-<tr class="even">
 <td align="left">SMDT1</td>
 <td align="right">0.9858649</td>
 <td align="right">0.0057753</td>
 <td align="right">0.4699751</td>
 <td align="right">0.5101145</td>
 <td align="right">0.9743143</td>
+</tr>
+<tr class="even">
+<td align="left">ZNF823</td>
+<td align="right">1.0427663</td>
+<td align="right">0.0385086</td>
+<td align="right">0.9943159</td>
+<td align="right">0.0099418</td>
+<td align="right">0.9657491</td>
 </tr>
 <tr class="odd">
 <td align="left">OLA1</td>
@@ -2176,22 +2172,14 @@ condition.</p>
 <td align="right">0.9648304</td>
 </tr>
 <tr class="even">
-<td align="left">MOB3A</td>
-<td align="right">0.9774679</td>
-<td align="right">0.9601726</td>
-<td align="right">NA</td>
-<td align="right">0.0172952</td>
-<td align="right">-0.9428774</td>
+<td align="left">TMX1</td>
+<td align="right">0.9860060</td>
+<td align="right">0.0119220</td>
+<td align="right">0.0064451</td>
+<td align="right">0.9676389</td>
+<td align="right">0.9621620</td>
 </tr>
 <tr class="odd">
-<td align="left">CRTAP</td>
-<td align="right">0.9752545</td>
-<td align="right">0.0315440</td>
-<td align="right">0.2052686</td>
-<td align="right">0.7384419</td>
-<td align="right">0.9121665</td>
-</tr>
-<tr class="even">
 <td align="left">GCH1</td>
 <td align="right">0.9712662</td>
 <td align="right">0.0155235</td>
@@ -2199,13 +2187,37 @@ condition.</p>
 <td align="right">0.9471000</td>
 <td align="right">0.9402192</td>
 </tr>
+<tr class="even">
+<td align="left">CRTAP</td>
+<td align="right">0.9752545</td>
+<td align="right">0.0315440</td>
+<td align="right">0.2052686</td>
+<td align="right">0.7384419</td>
+<td align="right">0.9121665</td>
+</tr>
 <tr class="odd">
-<td align="left">GIGYF1</td>
-<td align="right">0.9367359</td>
-<td align="right">0.9225593</td>
-<td align="right">NA</td>
-<td align="right">0.0141766</td>
-<td align="right">-0.9083827</td>
+<td align="left">SLC25A12</td>
+<td align="right">0.9235158</td>
+<td align="right">0.0118783</td>
+<td align="right">0.8934398</td>
+<td align="right">0.0181977</td>
+<td align="right">0.8997592</td>
+</tr>
+<tr class="even">
+<td align="left">DISP3</td>
+<td align="right">0.9170566</td>
+<td align="right">0.0145464</td>
+<td align="right">0.2787083</td>
+<td align="right">0.6238019</td>
+<td align="right">0.8879639</td>
+</tr>
+<tr class="odd">
+<td align="left">NGEF</td>
+<td align="right">0.9058406</td>
+<td align="right">0.0101174</td>
+<td align="right">0.8273583</td>
+<td align="right">0.0683649</td>
+<td align="right">0.8856057</td>
 </tr>
 <tr class="even">
 <td align="left">TIGD1</td>
@@ -2216,28 +2228,28 @@ condition.</p>
 <td align="right">0.8827076</td>
 </tr>
 <tr class="odd">
-<td align="left">MPHOSPH9</td>
-<td align="right">0.9245093</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">0.9245093</td>
-<td align="right">0.9245093</td>
+<td align="left">CSNK2B</td>
+<td align="right">0.8696222</td>
+<td align="right">0.0000161</td>
+<td align="right">0.0000044</td>
+<td align="right">0.8696018</td>
+<td align="right">0.8695901</td>
 </tr>
 <tr class="even">
-<td align="left">SLC25A12</td>
-<td align="right">0.9235158</td>
-<td align="right">0.0118783</td>
-<td align="right">0.8934398</td>
-<td align="right">0.0181977</td>
-<td align="right">0.8997592</td>
+<td align="left">ABITRAM</td>
+<td align="right">0.8744183</td>
+<td align="right">0.0154501</td>
+<td align="right">0.8589683</td>
+<td align="right">NA</td>
+<td align="right">0.8435182</td>
 </tr>
 <tr class="odd">
-<td align="left">DISP3</td>
-<td align="right">0.9170566</td>
-<td align="right">0.0145464</td>
-<td align="right">0.2787083</td>
-<td align="right">0.6238019</td>
-<td align="right">0.8879639</td>
+<td align="left">ARHGEF7</td>
+<td align="right">0.8873169</td>
+<td align="right">0.0264778</td>
+<td align="right">0.0062626</td>
+<td align="right">0.8545766</td>
+<td align="right">0.8343614</td>
 </tr>
 <tr class="even">
 <td align="left">PPP2R3C</td>
@@ -2248,6 +2260,54 @@ condition.</p>
 <td align="right">0.8301251</td>
 </tr>
 <tr class="odd">
+<td align="left">ITSN1</td>
+<td align="right">0.8874453</td>
+<td align="right">0.0313299</td>
+<td align="right">0.2226319</td>
+<td align="right">0.6334835</td>
+<td align="right">0.8247854</td>
+</tr>
+<tr class="even">
+<td align="left">ALMS1</td>
+<td align="right">0.8612558</td>
+<td align="right">0.0195807</td>
+<td align="right">0.8167506</td>
+<td align="right">0.0249245</td>
+<td align="right">0.8220944</td>
+</tr>
+<tr class="odd">
+<td align="left">MAU2</td>
+<td align="right">0.8210469</td>
+<td align="right">0.0122064</td>
+<td align="right">0.7868409</td>
+<td align="right">0.0219996</td>
+<td align="right">0.7966341</td>
+</tr>
+<tr class="even">
+<td align="left">EMC2</td>
+<td align="right">0.8255453</td>
+<td align="right">0.0174632</td>
+<td align="right">0.0065455</td>
+<td align="right">0.8015367</td>
+<td align="right">0.7906189</td>
+</tr>
+<tr class="odd">
+<td align="left">DNPH1</td>
+<td align="right">0.8758700</td>
+<td align="right">0.0449328</td>
+<td align="right">0.8027157</td>
+<td align="right">0.0282215</td>
+<td align="right">0.7860044</td>
+</tr>
+<tr class="even">
+<td align="left">AUTS2</td>
+<td align="right">1.1117249</td>
+<td align="right">0.1644127</td>
+<td align="right">0.6738130</td>
+<td align="right">0.2734992</td>
+<td align="right">0.7828994</td>
+</tr>
+<tr class="odd">
 <td align="left">ATP5MC1</td>
 <td align="right">0.9130450</td>
 <td align="right">0.0956909</td>
@@ -2256,12 +2316,76 @@ condition.</p>
 <td align="right">0.7216632</td>
 </tr>
 <tr class="even">
-<td align="left">NGEF</td>
-<td align="right">0.9058406</td>
-<td align="right">0.0101174</td>
-<td align="right">0.8273583</td>
-<td align="right">0.0683649</td>
-<td align="right">0.8856057</td>
+<td align="left">MOCS3</td>
+<td align="right">0.8871662</td>
+<td align="right">0.1056792</td>
+<td align="right">0.1531962</td>
+<td align="right">0.6282907</td>
+<td align="right">0.6758077</td>
+</tr>
+<tr class="odd">
+<td align="left">ARPP19</td>
+<td align="right">0.8914864</td>
+<td align="right">0.1803626</td>
+<td align="right">0.6785657</td>
+<td align="right">0.0325581</td>
+<td align="right">0.5307611</td>
+</tr>
+<tr class="even">
+<td align="left">CD46</td>
+<td align="right">0.8846217</td>
+<td align="right">0.2094289</td>
+<td align="right">0.1980074</td>
+<td align="right">0.4771854</td>
+<td align="right">0.4657639</td>
+</tr>
+<tr class="odd">
+<td align="left">ZBED4</td>
+<td align="right">0.8423367</td>
+<td align="right">0.2514068</td>
+<td align="right">0.2469886</td>
+<td align="right">0.3439413</td>
+<td align="right">0.3395231</td>
+</tr>
+<tr class="even">
+<td align="left">NPIPB2</td>
+<td align="right">0.8301842</td>
+<td align="right">0.2550601</td>
+<td align="right">0.2496642</td>
+<td align="right">0.3254599</td>
+<td align="right">0.3200639</td>
+</tr>
+<tr class="odd">
+<td align="left">TDRD6</td>
+<td align="right">0.8839864</td>
+<td align="right">0.3754320</td>
+<td align="right">0.0292974</td>
+<td align="right">0.4792570</td>
+<td align="right">0.1331223</td>
+</tr>
+<tr class="even">
+<td align="left">DNAH7</td>
+<td align="right">0.8322135</td>
+<td align="right">0.3629555</td>
+<td align="right">0.0057035</td>
+<td align="right">0.4635545</td>
+<td align="right">0.1063025</td>
+</tr>
+<tr class="odd">
+<td align="left">HLA-DMA</td>
+<td align="right">0.8144344</td>
+<td align="right">0.3645006</td>
+<td align="right">0.1391986</td>
+<td align="right">0.3107352</td>
+<td align="right">0.0854333</td>
+</tr>
+<tr class="even">
+<td align="left">APC2</td>
+<td align="right">0.8677857</td>
+<td align="right">0.5043849</td>
+<td align="right">0.2881813</td>
+<td align="right">0.0752195</td>
+<td align="right">-0.1409841</td>
 </tr>
 <tr class="odd">
 <td align="left">CHRNA3</td>
@@ -2280,86 +2404,6 @@ condition.</p>
 <td align="right">-0.7722125</td>
 </tr>
 <tr class="odd">
-<td align="left">ARPP19</td>
-<td align="right">0.8914864</td>
-<td align="right">0.1803626</td>
-<td align="right">0.6785657</td>
-<td align="right">0.0325581</td>
-<td align="right">0.5307611</td>
-</tr>
-<tr class="even">
-<td align="left">ITSN1</td>
-<td align="right">0.8874453</td>
-<td align="right">0.0313299</td>
-<td align="right">0.2226319</td>
-<td align="right">0.6334835</td>
-<td align="right">0.8247854</td>
-</tr>
-<tr class="odd">
-<td align="left">ARHGEF7</td>
-<td align="right">0.8873169</td>
-<td align="right">0.0264778</td>
-<td align="right">0.0062626</td>
-<td align="right">0.8545766</td>
-<td align="right">0.8343614</td>
-</tr>
-<tr class="even">
-<td align="left">MOCS3</td>
-<td align="right">0.8871662</td>
-<td align="right">0.1056792</td>
-<td align="right">0.1531962</td>
-<td align="right">0.6282907</td>
-<td align="right">0.6758077</td>
-</tr>
-<tr class="odd">
-<td align="left">PCYT1A</td>
-<td align="right">0.8869254</td>
-<td align="right">NA</td>
-<td align="right">0.0122529</td>
-<td align="right">0.8746725</td>
-<td align="right">0.8869254</td>
-</tr>
-<tr class="even">
-<td align="left">CD46</td>
-<td align="right">0.8846217</td>
-<td align="right">0.2094289</td>
-<td align="right">0.1980074</td>
-<td align="right">0.4771854</td>
-<td align="right">0.4657639</td>
-</tr>
-<tr class="odd">
-<td align="left">TDRD6</td>
-<td align="right">0.8839864</td>
-<td align="right">0.3754320</td>
-<td align="right">0.0292974</td>
-<td align="right">0.4792570</td>
-<td align="right">0.1331223</td>
-</tr>
-<tr class="even">
-<td align="left">DNPH1</td>
-<td align="right">0.8758700</td>
-<td align="right">0.0449328</td>
-<td align="right">0.8027157</td>
-<td align="right">0.0282215</td>
-<td align="right">0.7860044</td>
-</tr>
-<tr class="odd">
-<td align="left">CHAC2</td>
-<td align="right">0.8747098</td>
-<td align="right">0.8668216</td>
-<td align="right">0.0078883</td>
-<td align="right">NA</td>
-<td align="right">-0.8589333</td>
-</tr>
-<tr class="even">
-<td align="left">ABITRAM</td>
-<td align="right">0.8744183</td>
-<td align="right">0.0154501</td>
-<td align="right">0.8589683</td>
-<td align="right">NA</td>
-<td align="right">0.8435182</td>
-</tr>
-<tr class="odd">
 <td align="left">HECW2</td>
 <td align="right">0.8734191</td>
 <td align="right">0.8247486</td>
@@ -2368,76 +2412,60 @@ condition.</p>
 <td align="right">-0.7760781</td>
 </tr>
 <tr class="even">
-<td align="left">CSNK2B</td>
-<td align="right">0.8696222</td>
-<td align="right">0.0000161</td>
-<td align="right">0.0000044</td>
-<td align="right">0.8696018</td>
-<td align="right">0.8695901</td>
+<td align="left">CHAC2</td>
+<td align="right">0.8747098</td>
+<td align="right">0.8668216</td>
+<td align="right">0.0078883</td>
+<td align="right">NA</td>
+<td align="right">-0.8589333</td>
 </tr>
 <tr class="odd">
-<td align="left">APC2</td>
-<td align="right">0.8677857</td>
-<td align="right">0.5043849</td>
-<td align="right">0.2881813</td>
-<td align="right">0.0752195</td>
-<td align="right">-0.1409841</td>
+<td align="left">GIGYF1</td>
+<td align="right">0.9367359</td>
+<td align="right">0.9225593</td>
+<td align="right">NA</td>
+<td align="right">0.0141766</td>
+<td align="right">-0.9083827</td>
 </tr>
 <tr class="even">
-<td align="left">ALMS1</td>
-<td align="right">0.8612558</td>
-<td align="right">0.0195807</td>
-<td align="right">0.8167506</td>
-<td align="right">0.0249245</td>
-<td align="right">0.8220944</td>
+<td align="left">CRAT</td>
+<td align="right">1.0031045</td>
+<td align="right">0.9589551</td>
+<td align="right">0.0079337</td>
+<td align="right">0.0362157</td>
+<td align="right">-0.9148056</td>
 </tr>
 <tr class="odd">
-<td align="left">ZBED4</td>
-<td align="right">0.8423367</td>
-<td align="right">0.2514068</td>
-<td align="right">0.2469886</td>
-<td align="right">0.3439413</td>
-<td align="right">0.3395231</td>
+<td align="left">MOB3A</td>
+<td align="right">0.9774679</td>
+<td align="right">0.9601726</td>
+<td align="right">NA</td>
+<td align="right">0.0172952</td>
+<td align="right">-0.9428774</td>
 </tr>
 <tr class="even">
-<td align="left">DNAH7</td>
-<td align="right">0.8322135</td>
-<td align="right">0.3629555</td>
-<td align="right">0.0057035</td>
-<td align="right">0.4635545</td>
-<td align="right">0.1063025</td>
+<td align="left">BMF</td>
+<td align="right">1.0210662</td>
+<td align="right">0.9908971</td>
+<td align="right">0.0160277</td>
+<td align="right">0.0141415</td>
+<td align="right">-0.9607279</td>
 </tr>
 <tr class="odd">
-<td align="left">NPIPB2</td>
-<td align="right">0.8301842</td>
-<td align="right">0.2550601</td>
-<td align="right">0.2496642</td>
-<td align="right">0.3254599</td>
-<td align="right">0.3200639</td>
+<td align="left">MPHOSPH9</td>
+<td align="right">0.9245093</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">0.9245093</td>
+<td align="right">0.9245093</td>
 </tr>
 <tr class="even">
-<td align="left">EMC2</td>
-<td align="right">0.8255453</td>
-<td align="right">0.0174632</td>
-<td align="right">0.0065455</td>
-<td align="right">0.8015367</td>
-<td align="right">0.7906189</td>
-</tr>
-<tr class="odd">
-<td align="left">MAU2</td>
-<td align="right">0.8210469</td>
-<td align="right">0.0122064</td>
-<td align="right">0.7868409</td>
-<td align="right">0.0219996</td>
-<td align="right">0.7966341</td>
-</tr>
-<tr class="even">
-<td align="left">HLA-DMA</td>
-<td align="right">0.8144344</td>
-<td align="right">0.3645006</td>
-<td align="right">0.1391986</td>
-<td align="right">0.3107352</td>
-<td align="right">0.0854333</td>
+<td align="left">PCYT1A</td>
+<td align="right">0.8869254</td>
+<td align="right">NA</td>
+<td align="right">0.0122529</td>
+<td align="right">0.8746725</td>
+<td align="right">0.8869254</td>
 </tr>
 </tbody>
 </table>

@@ -368,7 +368,7 @@ div.tocify {
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
 <span class="glyphicon glyphicon-list" aria-hidden="true"></span>
-workflowr <span class="glyphicon glyphicon-ok text-success"
+workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger"
 aria-hidden="true"></span>
 </button>
 </p>
@@ -379,8 +379,8 @@ aria-hidden="true"></span>
 </li>
 <li>
 <a data-toggle="tab" href="#checks"> Checks <span
-class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
-</a>
+class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span> </a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -393,9 +393,9 @@ class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
 </p>
 <p>
 <strong>Checks:</strong> <span
-class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6
 <span class="glyphicon glyphicon-exclamation-sign text-danger"
-aria-hidden="true"></span> 0
+aria-hidden="true"></span> 1
 </p>
 <p>
 <strong>Knit directory:</strong>
@@ -419,18 +419,21 @@ versions</em> tab lists the development history.
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate">
-<span class="glyphicon glyphicon-ok text-success"
-aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date
-</a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges">
+<span class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted
+changes </a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguptodate"
+<div id="strongRMarkdownfilestronguncommittedchanges"
 class="panel-collapse collapse">
 <div class="panel-body">
-<p>Great! Since the R Markdown file has been committed to the Git
-repository, you know the exact version of the code that produced these
-results.</p>
+<p>The R Markdown file has unstaged changes. To know which version of
+the R Markdown file created these results, you’ll want to first commit
+it to the Git repo. If you’re still working on the analysis, you can
+ignore this warning. When you’re finished, you can run
+<code>wflow_publish</code> to commit the R Markdown file and build the
+HTML.</p>
 </div>
 </div>
 </div>
@@ -521,15 +524,15 @@ project makes it easier to run your code on other machines.</p>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomLifanLiangneuronstimulation100lineeQTLtree41e9fcfe8ae8dbd10e4e324bfeff4319ab64ea3dtargetblank41e9fcfa">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomLifanLiangneuronstimulation100lineeQTLtreef3724fa824f9257cb977aaf5f2fdd8c23fed7372targetblankf3724faa">
 <span class="glyphicon glyphicon-ok text-success"
 aria-hidden="true"></span> <strong>Repository version:</strong>
-<a href="https://github.com/LifanLiang/neuron_stimulation_100line_eQTL/tree/41e9fcfe8ae8dbd10e4e324bfeff4319ab64ea3d" target="_blank">41e9fcf</a>
+<a href="https://github.com/LifanLiang/neuron_stimulation_100line_eQTL/tree/f3724fa824f9257cb977aaf5f2fdd8c23fed7372" target="_blank">f3724fa</a>
 </a>
 </p>
 </div>
 <div
-id="strongRepositoryversionstrongahrefhttpsgithubcomLifanLiangneuronstimulation100lineeQTLtree41e9fcfe8ae8dbd10e4e324bfeff4319ab64ea3dtargetblank41e9fcfa"
+id="strongRepositoryversionstrongahrefhttpsgithubcomLifanLiangneuronstimulation100lineeQTLtreef3724fa824f9257cb977aaf5f2fdd8c23fed7372targetblankf3724faa"
 class="panel-collapse collapse">
 <div class="panel-body">
 <p>
@@ -539,7 +542,7 @@ reproducibility.
 </p>
 <p>
 The results in this page were generated with repository version
-<a href="https://github.com/LifanLiang/neuron_stimulation_100line_eQTL/tree/41e9fcfe8ae8dbd10e4e324bfeff4319ab64ea3d" target="_blank">41e9fcf</a>.
+<a href="https://github.com/LifanLiang/neuron_stimulation_100line_eQTL/tree/f3724fa824f9257cb977aaf5f2fdd8c23fed7372" target="_blank">f3724fa</a>.
 See the <em>Past versions</em> tab to see a history of the changes made
 to the R Markdown and HTML files.
 </p>
@@ -556,6 +559,14 @@ were generated:
 Ignored files:
     Ignored:    .DS_Store
     Ignored:    data/.DS_Store
+
+Untracked files:
+    Untracked:  data/single_group_ctwas.zip
+    Untracked:  data/single_group_ctwas/
+
+Unstaged changes:
+    Modified:   analysis/cTWAS.Rmd
+    Modified:   analysis/single_cTWAS.Rmd
 
 </code></pre>
 <p>
@@ -601,6 +612,23 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/LifanLiang/neuron_stimulation_100line_eQTL/f3724fa824f9257cb977aaf5f2fdd8c23fed7372/docs/single_cTWAS.html" target="_blank">f3724fa</a>
+</td>
+<td>
+Lifan Liang
+</td>
+<td>
+2023-11-07
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -827,6 +855,13 @@ eQTLs were defined as FDR&lt;0.05 in the current condition and P value
 <img src="assets/single_ctwas_plots/6hr_npglut.png" alt="" />
 <p class="caption">6 hour npglut</p>
 </div>
+</div>
+</div>
+<div id="egenes" class="section level3">
+<h3>eGenes</h3>
+<pre class="r"><code>library(data.table)
+
+GABA0 &lt;- fread(&quot;data/single_group_ctwas/0hr_GABA.susieIrss.txt&quot;)</code></pre>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -851,7 +886,7 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] workflowr_1.7.0
+[1] data.table_1.14.2 workflowr_1.7.0  
 
 loaded via a namespace (and not attached):
  [1] Rcpp_1.0.11      highr_0.9        bslib_0.3.1      compiler_4.1.2  
@@ -866,7 +901,6 @@ loaded via a namespace (and not attached):
 [37] whisker_0.4      ps_1.6.0         promises_1.2.0.1 htmltools_0.5.2 
 [41] ellipsis_0.3.2   httpuv_1.6.5     utf8_1.2.2       stringi_1.7.6   
 [45] crayon_1.4.2    </code></pre>
-</div>
 </div>
 </div>
 </div>

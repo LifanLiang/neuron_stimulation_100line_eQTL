@@ -57,3 +57,17 @@ knitr::kable(group_var)
 ![1 hour npglut](assets/single_ctwas_plots/1hr_npglut.png)
 
 ![6 hour npglut](assets/single_ctwas_plots/6hr_npglut.png)
+
+
+### eGenes 
+
+```{r}
+library(data.table)
+
+GABA0 <- fread("data/single_group_ctwas/0hr_GABA.susieIrss.txt")
+```
+
+
+
+
+
