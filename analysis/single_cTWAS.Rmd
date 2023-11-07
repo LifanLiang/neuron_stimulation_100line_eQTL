@@ -33,8 +33,27 @@ colnames(group_var)[2] <- "gene"
 knitr::kable(group_var)
 ```
 
-### Examples of convergence plots
+### Convergence plots
 
-![1 hour NPglut](assets/single_dynamic_shared_var_npglut1.png)
-![1 hour GABA](assets/single_dynamic_shared_var_GABA1.png)
+#### GABA
 
+![0 hour GABA](assets/single_ctwas_plots/0hr_GABA.png)
+
+![1 hour GABA](assets/single_ctwas_plots/1hr_GABA.png)
+
+![6 hour GABA](assets/single_ctwas_plots/6hr_GABA.png)
+
+#### NMglut
+![0 hour nmglut](assets/single_ctwas_plots/0hr_nmglut.png)
+
+![1 hour nmglut](assets/single_ctwas_plots/1hr_nmglut.png)
+
+![6 hour nmglut](assets/single_ctwas_plots/6hr_nmglut.png)
+
+#### NPglut
+
+![0 hour npglut](assets/single_ctwas_plots/0hr_npglut.png)
+
+![1 hour npglut](assets/single_ctwas_plots/1hr_npglut.png)
+
+![6 hour npglut](assets/single_ctwas_plots/6hr_npglut.png)
