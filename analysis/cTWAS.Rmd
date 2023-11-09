@@ -88,7 +88,7 @@ Posterior inclusion probability (PIP) across time points summed up to be greater
 ```{r, echo=F}
 GABA.pip <- read.table("data/GABA_gene_PIP.txt", header=T)
 GABA.pip1 <- GABA.pip[GABA.pip$PIP_sum>0.8,]
-GABA.pip1 <- GABA.pip1[order(GABA.pip1$PIP_diff,decreasing=T),]
+GABA.pip1 <- GABA.pip1[order(GABA.pip1$PIP_sum,decreasing=T),]
 GABA.pip1$PIP_diff <- rowSums(data.frame(x=GABA.pip1$PIP_sum, y=-2*GABA.pip1$PIP_0hr_GABA), na.rm=T)
 rownames(GABA.pip1) <- NULL
 knitr::kable(GABA.pip1, caption = "Top genes for the GABA cell type")
@@ -97,7 +97,7 @@ knitr::kable(GABA.pip1, caption = "Top genes for the GABA cell type")
 ```{r, echo=F}
 nmglut.pip <- read.table("data/nmglut_gene_PIP.txt", header=T)
 nmglut.pip1 <- nmglut.pip[nmglut.pip$PIP_sum>0.8,]
-nmglut.pip1 <- nmglut.pip1[order(nmglut.pip1$PIP_diff,decreasing=T),]
+nmglut.pip1 <- nmglut.pip1[order(nmglut.pip1$PIP_sum,decreasing=T),]
 nmglut.pip1$PIP_diff <- rowSums(data.frame(x=nmglut.pip1$PIP_sum, y=-2*nmglut.pip1$PIP_0hr_nmglut), na.rm=T)
 rownames(nmglut.pip1) <- NULL
 knitr::kable(nmglut.pip1, caption = "Top genes for the nmglut cell type")
@@ -106,7 +106,7 @@ knitr::kable(nmglut.pip1, caption = "Top genes for the nmglut cell type")
 ```{r, echo=F}
 npglut.pip <- read.table("data/npglut_gene_PIP.txt", header=T)
 npglut.pip1 <- npglut.pip[npglut.pip$PIP_sum>0.8,]
-npglut.pip1 <- npglut.pip1[order(npglut.pip1$PIP_diff,decreasing=T),]
+npglut.pip1 <- npglut.pip1[order(npglut.pip1$PIP_sum,decreasing=T),]
 npglut.pip1$PIP_diff <- rowSums(data.frame(x=npglut.pip1$PIP_sum, y=-2*npglut.pip1$PIP_0hr_npglut), na.rm=T)
 rownames(npglut.pip1) <- NULL
 knitr::kable(npglut.pip1, caption = "Top genes for the nmglut cell type")
@@ -128,9 +128,112 @@ plot(x=all$PIP_sum.y, y=all$PIP_sum, pch=16, xlab="npglut PIP", ylab="GABA")
 text(1.0,1.1,paste0("corr: ", sprintf("%.3f",cor(all$PIP_sum.y, all$PIP_sum, use="complete.obs"))))
 ```
 
-### Overlap of eGenes
+### Overlap of eGenes across celltypes
 
 ```{r}
+library(VennDiagram)
+library(RColorBrewer)
+myCol <- brewer.pal(3, "Pastel2")
+
+venn.diagram(list(GABA.pip1$genename, nmglut.pip1$genename, npglut.pip1$genename), filename = "docs/assets/venn_egenes.png", category.names = c("GABA","nmglut","npglut"), output=T, fill=myCol, lty="blank", lwd=2, cat.fontface = "bold", fontface="bold", cex =2, cat.cex = 2, cat.fontfamily = "sans", fontfamily="sans")
+```
+
+![Overlap of top genes](docs/assets/venn_egenes.png)
+
+### Dynamic eGenes
+
+PIP_diff > 0.5 defined as dynamic eGenes. Most genes identified in glut cells are dynamic. For GABA, more than half top genes are dynamic.
+
+```{r,echo=F}
+library(ggplot2)
+dat <- data.frame(Ngenes=c(30,35,27,21,1,7), celltype=rep(c("GABA","nmglut","npglut"),2),
+           dynamic=c(rep(T,3), rep(F,3)))
+ggplot(dat, aes(x=celltype, fill=dynamic, y=Ngenes, label=Ngenes)) + 
+  geom_bar(position="stack", stat="identity") +
+  geom_text(size = 6, position = position_stack(vjust = 0.5)) + 
+  xlab("Number of Top genes") + ylab("Cell type")
+```
+
+### 
+
+```{r,echo=F}
+par(mfrow=c(2,2))
+
+static <- read.table("data/static_GABA_gene_pip.txt")
+shared <- intersect(static$id, GABA.pip$genename)
+static1 <- static[static$id %in% shared,]
+static1 <- static1[order(static1$id),]
+GABA.shared <- GABA.pip[GABA.pip$genename %in% shared,]
+GABA.shared <- GABA.shared[order(GABA.shared$genename),]
+plot(x=static1$susie_pip, GABA.shared$PIP_0hr_GABA, ylim=c(0,1), xlim=c(0,1), 
+     xlab="single group cTWAS PIP", ylab="multigroup cTWAS PIP")
+lines(c(0,1), c(0,1), col="red")
+
+
+plot(x=static1$susie_pip, GABA.shared$PIP_1hr_GABA, ylim=c(0,1), xlim=c(0,1), 
+     xlab="single group cTWAS PIP", ylab="multigroup cTWAS PIP")
+lines(c(0,1), c(0,1), col="red")
+plot(x=static1$susie_pip, GABA.shared$PIP_6hr_GABA, ylim=c(0,1), xlim=c(0,1), 
+     xlab="single group cTWAS PIP", ylab="multigroup cTWAS PIP")
+lines(c(0,1), c(0,1), col="red")
+plot(x=static1$susie_pip, GABA.shared$PIP_sum, ylim=c(0,1), xlim=c(0,1), 
+     xlab="single group cTWAS PIP", ylab="multigroup cTWAS PIP")
+lines(c(0,1), c(0,1), col="red")
+```
+
+
+### Enrichment analysis
+
+#### GABA top genes enrichment in GO biological process
+
+gene set enrichment analysis for each cell type and then a union
+```{r, echo=F}
+library(enrichR)
+websiteLive <- getOption("enrichR.live")
+dbs <- c("GO_Molecular_Function_2015", "GO_Cellular_Component_2015", "GO_Biological_Process_2015")
+if (websiteLive) {
+    enriched <- enrichr(GABA.pip1$genename, dbs)
+}
+if (websiteLive) {
+    plotEnrich(enriched[[3]], showTerms = 10, numChar = 40, y = "Count", orderBy = "P.value")
+}
+```
+
+#### nmglut top genes enrichment in GO biological process
+
+```{r, echo=F}
+if (websiteLive) {
+    enriched <- enrichr(nmglut.pip1$genename, dbs)
+}
+if (websiteLive) {
+    plotEnrich(enriched[[3]], showTerms = 10, numChar = 40, y = "Count", orderBy = "P.value")
+}
+```
+
+#### npglut top genes enrichment in GO biological process
+
+```{r,echo=F}
+if (websiteLive) {
+    enriched <- enrichr(npglut.pip1$genename, dbs)
+}
+if (websiteLive) {
+    plotEnrich(enriched[[3]], showTerms = 10, numChar = 40, y = "Count", orderBy = "P.value")
+}
+```
+
+### Locus plot
+
+Get molecular function of top genes from top to bottom. Roughly related to neural functions
+
+Pubmed search of top genes. Maybe chatGPT? 
+
+Do locus plot if the gene is promising.
+
+```{r,echo=F}
 
 ```
+
+
+
+
 

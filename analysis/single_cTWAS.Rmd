@@ -59,15 +59,33 @@ knitr::kable(group_var)
 ![6 hour npglut](assets/single_ctwas_plots/6hr_npglut.png)
 
 
-### eGenes 
+### Significant genes in static conditions (0 hours)
 
 ```{r}
 library(data.table)
 
 GABA0 <- fread("data/single_group_ctwas/0hr_GABA.susieIrss.txt")
+GABA0.gene <- GABA0[GABA0$type!="SNP"]
+GABA0.gene <- GABA0.gene[GABA0.gene$susie_pip>0.8,]
 ```
 
+```{r}
+nmglut0 <- fread("data/single_group_ctwas/0hr_nmglut.susieIrss.txt")
+nmglut0.gene <- nmglut0[nmglut0$type!="SNP"]
+nmglut0.gene <- nmglut0.gene[nmglut0.gene$susie_pip>0.8,]
+```
 
+```{r}
+npglut0 <- fread("data/single_group_ctwas/0hr_npglut.susieIrss.txt")
+npglut0.gene <- npglut0[npglut0$type!="SNP"]
+npglut0.gene <- npglut0.gene[npglut0.gene$susie_pip>0.8,]
+```
 
+```{r}
+npglut1 <- fread("data/single_group_ctwas/1hr_npglut.susieIrss.txt")
+npglut1.gene <- npglut1[npglut1$type!="SNP"]
+npglut1.gene <- npglut1.gene[npglut1.gene$susie_pip>0.6,]
+knitr::kable(npglut1.gene[,c(1,2,3,8)])
+```
 
 

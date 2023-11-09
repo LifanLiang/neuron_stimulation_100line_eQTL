@@ -1,0 +1,25 @@
+﻿Gene set name,GO ID,Domain,N (genes),Beta,se,P,P (Bonferroni-corrected)
+GO:0034702_ion_channel_complex,GO:0034702,Cellular Component,229,0.442,0.074,1.38E-09,1.01E-05
+GO:0045202_synapse,GO:0045202,Cellular Component,577,0.257,0.045,7.46E-09,5.46E-05
+GO:0034703_cation_channel_complex,GO:0034703,Cellular Component,199,0.448,0.079,7.89E-09,5.77E-05
+GO:1902495_transmembrane_transporter_complex,GO:1902495,Cellular Component,248,0.397,0.071,1.06E-08,7.75E-05
+GO:1990351_transporter_complex,GO:1990351,Cellular Component,256,0.375,0.070,3.52E-08,2.58E-04
+GO:0030424_axon,GO:0030424,Cellular Component,308,0.331,0.062,5.29E-08,3.87E-04
+GO:0022839_ion_gated_channel_activity,GO:0022839,Molecular Function,245,0.376,0.072,7.80E-08,5.70E-04
+GO:0022843_voltage-gated_cation_channel_activity,GO:0022843,Molecular Function,118,0.535,0.103,1.01E-07,7.40E-04
+GO:0043005_neuron_projection,GO:0043005,Cellular Component,751,0.206,0.040,1.16E-07,8.52E-04
+GO:0022832_voltage-gated_channel_activity,GO:0022832,Molecular Function,131,0.492,0.096,1.32E-07,9.64E-04
+GO:0005244_voltage-gated_ion_channel_activity,GO:0005244,Molecular Function,131,0.492,0.096,1.32E-07,9.64E-04
+GO:0036477_somatodendritic_compartment,GO:0036477,Cellular Component,403,0.263,0.052,1.84E-07,1.35E-03
+GO:0045664_regulation_of_neuron_differentiation,GO:0045664,Biological Process,378,0.275,0.056,5.29E-07,3.87E-03
+GO:0030425_dendrite,GO:0030425,Cellular Component,308,0.288,0.059,6.05E-07,4.43E-03
+GO:0097447_dendritic_tree,GO:0097447,Cellular Component,311,0.286,0.059,6.16E-07,4.51E-03
+GO:0022836_gated_channel_activity,GO:0022836,Molecular Function,253,0.339,0.070,6.78E-07,4.96E-03
+GO:0060341_regulation_of_cellular_localization,GO:0060341,Biological Process,620,0.203,0.044,1.58E-06,0.012
+GO:0050804_modulation_of_chemical_synaptic_transmission,GO:0050804,Biological Process,233,0.322,0.069,1.78E-06,0.013
+GO:0005245_voltage-gated_calcium_channel_activity,GO:0005245,Molecular Function,35,0.835,0.181,2.09E-06,0.015
+GO:0098794_postsynapse,GO:0098794,Cellular Component,260,0.303,0.066,2.46E-06,0.018
+GO:2001257_regulation_of_cation_channel_activity,GO:2001257,Biological Process,135,0.441,0.097,2.48E-06,0.018
+GO:0007399_nervous_system_development,GO:0007399,Biological Process,1430,0.136,0.030,2.75E-06,0.020
+GO:0099177_regulation_of_trans-synaptic_signaling,GO:0099177,Biological Process,234,0.314,0.069,3.03E-06,0.022
+GO:0043025_neuronal_cell_body,GO:0043025,Cellular Component,184,0.343,0.076,3.10E-06,0.023

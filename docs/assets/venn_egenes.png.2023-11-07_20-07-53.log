@@ -1,0 +1,12 @@
+INFO [2023-11-07 20:07:53] [[1]]
+INFO [2023-11-07 20:07:53] list(GABA.pip1$genename, nmglut.pip1$genename, npglut.pip1$genename)
+INFO [2023-11-07 20:07:53] 
+INFO [2023-11-07 20:07:53] $filename
+INFO [2023-11-07 20:07:53] [1] "docs/assets/venn_egenes.png"
+INFO [2023-11-07 20:07:53] 
+INFO [2023-11-07 20:07:53] $category.names
+INFO [2023-11-07 20:07:53] c("GABA", "nmglut", "npglut")
+INFO [2023-11-07 20:07:53] 
+INFO [2023-11-07 20:07:53] $output
+INFO [2023-11-07 20:07:53] T
+INFO [2023-11-07 20:07:53] 
