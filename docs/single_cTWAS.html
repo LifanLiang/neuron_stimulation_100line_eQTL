@@ -389,7 +389,7 @@ class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2023-11-07
+<strong>Last updated:</strong> 2023-11-08
 </p>
 <p>
 <strong>Checks:</strong> <span
@@ -521,15 +521,15 @@ project makes it easier to run your code on other machines.</p>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomLifanLiangneuronstimulation100lineeQTLtree22344b0c95010fba9205be91d9e3db1adb45676atargetblank22344b0a">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomLifanLiangneuronstimulation100lineeQTLtreecd9af0656574fabfdf0b3599bff7a4b356101f95targetblankcd9af06a">
 <span class="glyphicon glyphicon-ok text-success"
 aria-hidden="true"></span> <strong>Repository version:</strong>
-<a href="https://github.com/LifanLiang/neuron_stimulation_100line_eQTL/tree/22344b0c95010fba9205be91d9e3db1adb45676a" target="_blank">22344b0</a>
+<a href="https://github.com/LifanLiang/neuron_stimulation_100line_eQTL/tree/cd9af0656574fabfdf0b3599bff7a4b356101f95" target="_blank">cd9af06</a>
 </a>
 </p>
 </div>
 <div
-id="strongRepositoryversionstrongahrefhttpsgithubcomLifanLiangneuronstimulation100lineeQTLtree22344b0c95010fba9205be91d9e3db1adb45676atargetblank22344b0a"
+id="strongRepositoryversionstrongahrefhttpsgithubcomLifanLiangneuronstimulation100lineeQTLtreecd9af0656574fabfdf0b3599bff7a4b356101f95targetblankcd9af06a"
 class="panel-collapse collapse">
 <div class="panel-body">
 <p>
@@ -539,7 +539,7 @@ reproducibility.
 </p>
 <p>
 The results in this page were generated with repository version
-<a href="https://github.com/LifanLiang/neuron_stimulation_100line_eQTL/tree/22344b0c95010fba9205be91d9e3db1adb45676a" target="_blank">22344b0</a>.
+<a href="https://github.com/LifanLiang/neuron_stimulation_100line_eQTL/tree/cd9af0656574fabfdf0b3599bff7a4b356101f95" target="_blank">cd9af06</a>.
 See the <em>Past versions</em> tab to see a history of the changes made
 to the R Markdown and HTML files.
 </p>
@@ -601,6 +601,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/LifanLiang/neuron_stimulation_100line_eQTL/blob/cd9af0656574fabfdf0b3599bff7a4b356101f95/analysis/single_cTWAS.Rmd" target="_blank">cd9af06</a>
+</td>
+<td>
+Lifan Liang
+</td>
+<td>
+2023-11-08
+</td>
+<td>
+wflow_publish(c("analysis", "data", "docs"))
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/LifanLiang/neuron_stimulation_100line_eQTL/618c018ea2a25634fa0caf67f94be37dbcc59d3d/docs/single_cTWAS.html" target="_blank">618c018</a>
+</td>
+<td>
+Lifan Liang
+</td>
+<td>
+2023-11-07
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -880,11 +914,78 @@ eQTLs were defined as FDR&lt;0.05 in the current condition and P value
 </div>
 </div>
 </div>
-<div id="egenes" class="section level3">
-<h3>eGenes</h3>
+<div id="significant-genes-in-static-conditions-0-hours"
+class="section level3">
+<h3>Significant genes in static conditions (0 hours)</h3>
 <pre class="r"><code>library(data.table)
 
-GABA0 &lt;- fread(&quot;data/single_group_ctwas/0hr_GABA.susieIrss.txt&quot;)</code></pre>
+GABA0 &lt;- fread(&quot;data/single_group_ctwas/0hr_GABA.susieIrss.txt&quot;)
+GABA0.gene &lt;- GABA0[GABA0$type!=&quot;SNP&quot;]
+GABA0.gene &lt;- GABA0.gene[GABA0.gene$susie_pip&gt;0.8,]</code></pre>
+<pre class="r"><code>nmglut0 &lt;- fread(&quot;data/single_group_ctwas/0hr_nmglut.susieIrss.txt&quot;)
+nmglut0.gene &lt;- nmglut0[nmglut0$type!=&quot;SNP&quot;]
+nmglut0.gene &lt;- nmglut0.gene[nmglut0.gene$susie_pip&gt;0.8,]</code></pre>
+<pre class="r"><code>npglut0 &lt;- fread(&quot;data/single_group_ctwas/0hr_npglut.susieIrss.txt&quot;)
+npglut0.gene &lt;- npglut0[npglut0$type!=&quot;SNP&quot;]
+npglut0.gene &lt;- npglut0.gene[npglut0.gene$susie_pip&gt;0.8,]</code></pre>
+<pre class="r"><code>npglut1 &lt;- fread(&quot;data/single_group_ctwas/1hr_npglut.susieIrss.txt&quot;)
+npglut1.gene &lt;- npglut1[npglut1$type!=&quot;SNP&quot;]
+npglut1.gene &lt;- npglut1.gene[npglut1.gene$susie_pip&gt;0.6,]
+knitr::kable(npglut1.gene[,c(1,2,3,8)])</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="right">chrom</th>
+<th align="left">id</th>
+<th align="right">pos</th>
+<th align="right">susie_pip</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td align="left">DISP3</td>
+<td align="right">11480592</td>
+<td align="right">0.6840777</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td align="left">NGEF</td>
+<td align="right">232923640</td>
+<td align="right">0.7842773</td>
+</tr>
+<tr class="odd">
+<td align="right">4</td>
+<td align="left">AFF1</td>
+<td align="right">86971507</td>
+<td align="right">0.6902037</td>
+</tr>
+<tr class="even">
+<td align="right">6</td>
+<td align="left">HLA-DMA</td>
+<td align="right">32975630</td>
+<td align="right">0.7241614</td>
+</tr>
+<tr class="odd">
+<td align="right">19</td>
+<td align="left">APC2</td>
+<td align="right">1457552</td>
+<td align="right">0.7073413</td>
+</tr>
+<tr class="even">
+<td align="right">19</td>
+<td align="left">ZNF823</td>
+<td align="right">11738921</td>
+<td align="right">0.9797094</td>
+</tr>
+<tr class="odd">
+<td align="right">22</td>
+<td align="left">SMDT1</td>
+<td align="right">41934225</td>
+<td align="right">0.8711220</td>
+</tr>
+</tbody>
+</table>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
