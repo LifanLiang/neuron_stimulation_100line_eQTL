@@ -1,7 +1,0 @@
-INFO [2023-11-07 20:06:31] [[1]]
-INFO [2023-11-07 20:06:31] list(GABA.pip1$genename, nmglut.pip1$genename, npglut.pip1$genename)
-INFO [2023-11-07 20:06:31] 
-INFO [2023-11-07 20:06:31] $filename
-INFO [2023-11-07 20:06:31] [1] "docs/assets/venn_egenes.png"
-INFO [2023-11-07 20:06:31] 
-ERROR [2023-11-07 20:06:31] Unexpected parameter length for "category"
